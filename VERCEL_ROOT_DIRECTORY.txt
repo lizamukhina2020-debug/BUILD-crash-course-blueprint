@@ -1,8 +1,12 @@
-For Vercel: set Project "Root Directory" to:
+This repo has TWO Vercel projects (same GitHub repo, different Root Directory):
 
-  website
+1) SeedMind marketing app (Next.js)
+   Root Directory:  website
+   URL example:     https://seedmind.vercel.app
 
-The repository root is the Expo app (no Next.js). The Next.js marketing site and /build blueprint live only under website/.
+2) BUILD crash-course ONLY (static HTML — separate site for people who DM "BUILD")
+   Root Directory:  build-site
+   URL example:     https://<your-second-project>.vercel.app
+   Setup:           build-site/README.md
 
-If Root Directory is empty or ".", Vercel shows:
-  "No Next.js version detected"
+Repo root package.json is Expo — never use "." as Root Directory for the Next.js app.

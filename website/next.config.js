@@ -7,14 +7,6 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        { source: "/build", destination: "/build/index.html" },
-        { source: "/build/", destination: "/build/index.html" },
-      ],
-    };
-  },
 };
 
 module.exports = nextConfig;

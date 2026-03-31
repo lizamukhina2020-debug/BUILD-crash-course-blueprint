@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none">
+  <rect width="320" height="200" rx="16" fill="#111820" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="48" y="56" width="224" height="88" rx="14" fill="rgba(134,239,172,0.08)" stroke="rgba(134,239,172,0.45)" stroke-width="2"/>
+  <path d="M72 100h176M72 118h120" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="248" cy="148" r="14" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="160" y="40" text-anchor="middle" fill="#86efac" font-family="system-ui,sans-serif" font-size="13" font-weight="600">REAL HUMAN · REAL REPLIES</text>
+</svg>

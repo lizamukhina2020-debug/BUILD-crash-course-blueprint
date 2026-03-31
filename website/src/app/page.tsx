@@ -24,9 +24,6 @@ export default function HomePage() {
               <Link className="btn btnGhost" href="/support">
                 Support
               </Link>
-              <Link className="btn btnGhost" href="/build">
-                BUILD guide
-              </Link>
               <Link className="btn" href="/privacy">
                 Privacy
               </Link>

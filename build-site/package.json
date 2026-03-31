@@ -1,0 +1,9 @@
+{
+  "name": "seedmind-build-blueprint-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone static site: BUILD crash-course blueprint (separate from SeedMind marketing app)",
+  "scripts": {
+    "build": "node sync-from-docs.cjs"
+  }
+}

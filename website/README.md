@@ -26,12 +26,11 @@ Then open `http://localhost:3000`.
 3. Import your SeedMind repo/folder.
 4. **Required:** set **Root Directory** to **`website`** (not the repo root). This repo’s root `package.json` is **Expo** — it does **not** include Next.js. If Root Directory is wrong, the build fails with **“No Next.js version detected”**.
 5. Framework preset should auto-detect **Next.js**.
-6. **Build Command:** leave empty (uses `website/vercel.json` → `npm run build`), or set explicitly to **`npm run build`** — do **not** use `next build` only, or the BUILD blueprint sync step is skipped.
-7. Click **Deploy**.
+6. Click **Deploy**.
 
 After deploy, Vercel will give you a URL like `https://<project>.vercel.app`.
 
-**BUILD blueprint:** `https://<project>.vercel.app/build`
+The **BUILD** crash-course doc is a **separate** Vercel project — see **`build-site/README.md`**.
 
 ### If the project already exists (fix a failed deploy)
 
