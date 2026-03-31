@@ -1,0 +1,8 @@
+For Vercel: set Project "Root Directory" to:
+
+  website
+
+The repository root is the Expo app (no Next.js). The Next.js marketing site and /build blueprint live only under website/.
+
+If Root Directory is empty or ".", Vercel shows:
+  "No Next.js version detected"
