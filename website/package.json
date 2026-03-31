@@ -5,9 +5,8 @@
   "scripts": {
     "sync-blueprint": "node scripts/sync-blueprint.cjs",
     "predev": "npm run sync-blueprint",
-    "prebuild": "npm run sync-blueprint",
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/sync-blueprint.cjs && next build",
     "start": "next start"
   },
   "keywords": [],
