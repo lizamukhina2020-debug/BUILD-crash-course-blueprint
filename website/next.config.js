@@ -8,10 +8,12 @@ const nextConfig = {
     root: __dirname,
   },
   async rewrites() {
-    return [
-      { source: "/build", destination: "/build/index.html" },
-      { source: "/build/", destination: "/build/index.html" },
-    ];
+    return {
+      beforeFiles: [
+        { source: "/build", destination: "/build/index.html" },
+        { source: "/build/", destination: "/build/index.html" },
+      ],
+    };
   },
 };
 
