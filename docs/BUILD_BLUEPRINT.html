@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="BUILD — a friendly crash-course blueprint from real experience building SeedMind." />
+  <title>BUILD — crash-course blueprint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg0: #0a0e14;
+      --bg1: #111820;
+      --panel: rgba(255,255,255,0.045);
+      --line: rgba(255,255,255,0.11);
+      --text: #e7edf7;
+      --muted: #94a3b8;
+      --accent: #5ee1ff;
+      --accent2: #a78bfa;
+      --warm: #fbbf24;
+      --seed: #86efac;
+      --shadow: 0 28px 90px rgba(0,0,0,0.5);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg0);
+      min-height: 100vh;
+    }
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(880px 520px at 12% 8%, rgba(94,225,255,0.13), transparent 55%),
+        radial-gradient(720px 480px at 88% 18%, rgba(167,139,250,0.11), transparent 52%),
+        radial-gradient(560px 380px at 48% 92%, rgba(134,239,172,0.07), transparent 48%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+    .grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 72% 58% at 50% 28%, black, transparent);
+      pointer-events: none;
+    }
+    .wrap { max-width: 840px; margin: 0 auto; padding: 2.5rem 1.35rem 4rem; }
+    header.hero {
+      position: relative;
+      padding: 2.35rem 1.85rem 2.1rem;
+      border-radius: calc(var(--radius) + 8px);
+      background: linear-gradient(150deg, rgba(90,109,130,0.28), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: -45%;
+      right: -25%;
+      width: 58%;
+      height: 130%;
+      background: radial-gradient(circle, rgba(94,225,255,0.11), transparent 68%);
+      pointer-events: none;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+    .badge {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.32rem 0.62rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.28);
+      color: var(--muted);
+    }
+    .badge.hot { border-color: rgba(94,225,255,0.4); color: var(--accent); }
+    .badge.seed { border-color: rgba(134,239,172,0.45); color: var(--seed); }
+    a.badge {
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    a.badge.seed-badge-link:hover {
+      border-color: rgba(134,239,172,0.75);
+      box-shadow: 0 0 0 1px rgba(134,239,172,0.2);
+      transform: translateY(-1px);
+    }
+    a.badge.seed-badge-link:focus-visible {
+      outline: 2px solid var(--seed);
+      outline-offset: 2px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5.2vw, 2.85rem);
+      line-height: 1.1;
+      margin: 0 0 0.65rem;
+      letter-spacing: -0.025em;
+    }
+    h1 .glow { text-shadow: 0 0 48px rgba(94,225,255,0.28); }
+    .hero-banner {
+      margin: 1rem 0 1.25rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #0a1018;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 220px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .why-triple {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+    @media (max-width: 640px) {
+      .why-triple { grid-template-columns: 1fr; }
+    }
+    .why-triple figure {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg1);
+    }
+    .why-triple img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .why-triple figcaption {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0.45rem 0.5rem;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .journey-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem 1.25rem;
+      margin: 0 0 0.85rem;
+    }
+    .journey-head h2 { margin: 0; flex: 1; min-width: min(100%, 220px); }
+    a.journey-logo-link {
+      flex-shrink: 0;
+      text-decoration: none;
+      border-bottom: none;
+      border-radius: 26px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    a.journey-logo-link:hover {
+      transform: scale(1.04);
+      box-shadow: 0 14px 40px rgba(134,239,172,0.15);
+    }
+    a.journey-logo-link:focus-visible {
+      outline: 2px solid var(--seed);
+      outline-offset: 3px;
+    }
+    .journey-logo {
+      width: 120px;
+      height: 120px;
+      padding: 12px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(134,239,172,0.18), rgba(255,255,255,0.05));
+      border: 1px solid rgba(134,239,172,0.4);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .journey-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      display: block;
+    }
+    /* §04 top: grid so copy stacks in left column beside tall thumb (no flex “dead zone”) */
+    .idea-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 1.15rem;
+      row-gap: 0.38rem;
+      margin: 0 0 0.1rem;
+      align-items: start;
+    }
+    .idea-top h2 {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0 !important;
+    }
+    .idea-top .idea-after {
+      grid-column: 1;
+      grid-row: 2;
+      margin: 0 !important;
+    }
+    .idea-top ul.plain {
+      grid-column: 1;
+      grid-row: 3;
+      margin: 0 0 0.65rem 1.15rem !important;
+    }
+    .idea-top .idea-thumb {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      align-self: start;
+      justify-self: end;
+    }
+    .idea-thumb {
+      flex-shrink: 0;
+      width: 132px;
+      padding: 12px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+    }
+    section.idea-section .idea-thumb {
+      width: 176px;
+      padding: 13px 14px;
+      border-radius: 22px;
+    }
+    .idea-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+    section.idea-section .idea-thumb img {
+      max-height: none;
+      min-height: 0;
+    }
+    .idea-after {
+      margin-top: 0 !important;
+    }
+    /* §04 — tighter panel + larger thumb (less dead space vs other sections) */
+    section.idea-section {
+      padding: 0.88rem 1.55rem 1.35rem;
+    }
+    @media (max-width: 520px) {
+      .idea-top {
+        grid-template-columns: minmax(0, 1fr) minmax(88px, auto);
+        column-gap: 0.7rem;
+      }
+      section.idea-section .idea-thumb {
+        width: 120px;
+        padding: 10px 11px;
+      }
+    }
+    section.idea-section .pmf-note {
+      margin-top: 0.72rem;
+      padding: 0.82rem 1rem;
+    }
+    section.idea-section .fun {
+      margin-top: 0.72rem;
+    }
+    .section-photo img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .stack-logos img {
+      height: 44px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+    }
+    .stack-logos .logo-wrap.expo-eas img {
+      max-height: 52px;
+      max-width: 220px;
+    }
+    .stack-logos .logo-wrap.app-store img,
+    .stack-logos .logo-wrap.testflight img {
+      height: 52px;
+      max-width: 52px;
+    }
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin: 0 0 1.15rem;
+    }
+    .hero-lead strong, .hero-lead a { color: var(--text); }
+    .hero-lead strong.seed-inline {
+      color: var(--seed);
+      font-weight: 600;
+    }
+    .hero-lead a { text-decoration: underline; text-decoration-color: rgba(94,225,255,0.45); }
+    .hero-lead a.seed-link {
+      color: var(--seed);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .hero-lead a.seed-link:hover {
+      text-decoration: underline;
+      text-decoration-color: rgba(134,239,172,0.55);
+      text-underline-offset: 0.18em;
+    }
+    .punch {
+      font-size: 1.04rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.05rem;
+      margin: 0;
+      color: #dbe7ff;
+    }
+    .punch strong { color: #fff; }
+    .aside {
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0.85rem 0 0;
+    }
+    section {
+      margin-top: 2.35rem;
+      padding: 1.65rem 1.55rem;
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    section h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.32rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    h2 .num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0a0e14;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 0.22rem 0.52rem;
+      border-radius: 8px;
+    }
+    p { margin: 0 0 1rem; color: #c8d4ea; }
+    p:last-child { margin-bottom: 0; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .fun {
+      background: linear-gradient(90deg, rgba(251,191,36,0.1), transparent);
+      border: 1px dashed rgba(251,191,36,0.32);
+      border-radius: 12px;
+      padding: 0.88rem 1.05rem;
+      margin: 1rem 0 0;
+      font-size: 0.95rem;
+      color: #fef3c7;
+    }
+    .fun strong { color: var(--warm); }
+    .story {
+      background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(94,225,255,0.06));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 1.15rem 1.2rem;
+      margin-top: 1rem;
+    }
+    .story p:last-child { margin-bottom: 0; }
+    .phases {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+    }
+    .phases li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      margin-bottom: 0.55rem;
+      color: #c8d4ea;
+      font-size: 0.95rem;
+    }
+    .phases li:last-child { margin-bottom: 0; }
+    .phases .dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      margin-top: 0.45rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .inspo-intro {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+    }
+    .inspo-intro p { margin: 0; color: #dbe7ff; }
+    .inspo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .inspo-card {
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--bg1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .inspo-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: linear-gradient(145deg, #1a2433, #0f141c);
+      display: block;
+    }
+    .inspo-card .cap { padding: 0.9rem 1rem 1.1rem; }
+    .inspo-card h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: #fff; }
+    .inspo-card p { font-size: 0.9rem; margin-bottom: 0.65rem; color: var(--muted); }
+    .inspo-card a {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .inspo-card a:hover { text-decoration: underline; }
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.88em;
+      color: var(--accent);
+    }
+    .seed-inline { color: var(--seed); font-weight: 600; }
+    a.seed-link {
+      color: var(--seed);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+    a.seed-link:hover {
+      color: #b4f8cc;
+      text-decoration: underline;
+      text-decoration-color: rgba(134,239,172,0.65);
+      text-underline-offset: 0.18em;
+    }
+    a.seed-link:focus-visible {
+      outline: 2px solid var(--seed);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    a.journey-logo-link.seed-link {
+      border-bottom: none;
+    }
+    a.badge.seed-badge-link {
+      border-bottom: none;
+    }
+    .seed-store-hint {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin: 0.35rem 0 1.05rem;
+      line-height: 1.5;
+      max-width: 36rem;
+    }
+    ul.plain { margin: 0 0 1rem 1.15rem; color: #c8d4ea; }
+    ol.steps { margin: 0; padding-left: 1.2rem; color: #c8d4ea; }
+    ol.steps li { margin-bottom: 0.35rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin-top: 0.75rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.62rem 0.72rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      width: 30%;
+    }
+    tr:last-child td, tr:last-child th { border-bottom: none; }
+    .cta-box {
+      text-align: center;
+      padding: 1.65rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(94,225,255,0.35);
+      background: rgba(94,225,255,0.06);
+      margin-top: 2.25rem;
+    }
+    .cta-box .big {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .cta-open {
+      margin-top: 1.75rem;
+      padding: 1.5rem 1.35rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(134,239,172,0.28);
+      background: rgba(134,239,172,0.05);
+    }
+    footer {
+      margin-top: 2.25rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.55;
+    }
+    .byline {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .byline strong { color: #cbd5e1; font-weight: 600; }
+    .section-visual {
+      margin: 1.15rem 0 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg1);
+    }
+    .section-visual img, .section-visual svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .section-visual.tight { max-height: 200px; }
+    .section-visual.tight img { max-height: 200px; object-fit: cover; object-position: center; }
+    .cursor-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin: 1rem 0 1.15rem;
+    }
+    .cursor-block img {
+      width: min(100%, 220px);
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #0a0a0a;
+      flex-shrink: 0;
+    }
+    .tips-box {
+      margin-top: 1.15rem;
+      padding: 1.1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid rgba(251,191,36,0.35);
+      background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(94,225,255,0.05));
+    }
+    .tips-box h3 {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      color: #fef3c7;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tips-box ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: #c8d4ea;
+      font-size: 0.92rem;
+    }
+    .tips-box li { margin-bottom: 0.65rem; }
+    .tips-box li:last-child { margin-bottom: 0; }
+    .stack-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem 0.35rem;
+      margin-top: 1.25rem;
+      padding: 1rem 0.85rem;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid var(--line);
+    }
+    .stack-logos a, .stack-logos span.logo-wrap {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.4rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .stack-logos .firebase { background: #fff; padding: 0.35rem 0.55rem; }
+    .pmf-note {
+      margin-top: 1rem;
+      padding: 0.95rem 1.05rem;
+      border-radius: 12px;
+      border: 1px solid rgba(94,225,255,0.22);
+      background: rgba(94,225,255,0.05);
+      font-size: 0.95rem;
+      color: #c8d4ea;
+    }
+    .cta-open { position: relative; }
+    .cta-open .section-visual { margin-top: 1.1rem; }
+    @media print {
+      .bg-mesh, .grid { display: none; }
+      body { background: #fff; color: #111; }
+      section, header.hero, .cta-box, .cta-open { break-inside: avoid; box-shadow: none; }
+      .inspo-card img { background: #eee; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="grid"></div>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge-row">
+        <span class="badge hot">Freedom</span>
+        <span class="badge hot">Build</span>
+        <a
+          href="https://apps.apple.com/app/id6759827726"
+          class="badge seed seed-badge-link seed-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Open SeedMind on the App Store"
+          aria-label="SeedMind on the App Store"
+        >SeedMind</a>
+        <span class="badge">AI era</span>
+      </div>
+      <h1><span class="glow">BUILD</span> — crash-course blueprint</h1>
+      <p class="byline"><strong>Elizabeth Mukhina</strong> — Founder of <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a></p>
+      <p class="seed-store-hint">
+        <strong style="color:#a8b4c8;">Note:</strong> Green <span class="seed-inline">SeedMind</span> text and the journey app icon are links — they open the <strong style="color:#cbd5e1;">SeedMind app</strong> on the App Store in a new tab.
+      </p>
+      <div class="hero-banner">
+        <img src="blueprint-media/hero-ai-banner.png" alt="Stylized AI graphic — circuits and glow" width="1200" height="400" />
+      </div>
+      <p class="hero-lead">
+        A real map from someone who shipped <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> without being a “professional coder.” Save it, print to PDF, pass it on — whatever helps you actually start.
+      </p>
+      <p class="punch">
+        We’re in a strange, good moment: <strong>tools + AI lower the floor</strong> for who can build.
+        The people who win are the ones who stay curious, ask “dumb” questions proudly, and ship small versions anyway.
+        <span style="color:var(--warm);">That can be you.</span>
+      </p>
+      <p class="aside">Nobody cool has it all figured out. Builders just poke the future until it moves.</p>
+    </header>
+
+    <section>
+      <h2><span class="num">00</span> Start here</h2>
+      <p>If you messaged <span class="mono">BUILD</span>, you’re holding the same kind of rough map I wish someone had handed me — not a flex, not a course upsell.</p>
+      <div class="fun"><strong>Plot twist:</strong> you don’t need permission, a CS degree, or a movie montage. You need curiosity and patience — like leveling in a game, except the loot is <strong>freedom</strong> (the quiet kind: knowing you can make things exist).</div>
+    </section>
+
+    <section id="journey">
+      <div class="journey-head">
+        <h2><span class="num">01</span> Why I’m sharing this (my journey)</h2>
+        <a
+          class="journey-logo-link seed-link"
+          href="https://apps.apple.com/app/id6759827726"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SeedMind on the App Store"
+          title="Open SeedMind on the App Store"
+        >
+          <div class="journey-logo">
+            <img src="blueprint-media/seedmind-icon.png" alt="SeedMind app icon" width="128" height="128" />
+          </div>
+        </a>
+      </div>
+      <p>This isn’t theory I copied from a slide deck. It’s what I actually lived.</p>
+      <p>I decided to take <strong>entrepreneurship</strong> seriously — not as a daydream, but as a direction I’d explore for real. Later I started <strong>building</strong> in earnest: messy notes, wrong turns, tiny wins, and a lot of “what does this even mean?” I didn’t have a mentor. I didn’t have “a guy.” I walked through the fog myself.</p>
+      <p>That path turned into <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> — the app I ship and care about. The same loop you’ll read here (clarity → small steps → keep going) is basically what <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> is <em>for</em>, too: turn something big you want into actions you can actually take.</p>
+      <div class="story">
+        <p class="muted" style="margin-bottom:0.65rem;"><strong style="color:#e7edf7;">Rough arc</strong> — dates don’t matter; the sequence does:</p>
+        <ul class="phases">
+          <li><span class="dot"></span><span><strong>Phase 1 — Commit.</strong> I chose to explore building a real product, not only thinking about it.</span></li>
+          <li><span class="dot"></span><span><strong>Phase 2 — Build.</strong> Environment, first screens, first crashes, first “it works on my phone.”</span></li>
+          <li><span class="dot"></span><span><strong>Phase 3 — Ship.</strong> <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> in the store, then iterate in public.</span></li>
+        </ul>
+      </div>
+      <p style="margin-top:1rem;">If you’re reading this, you’re already further along than you think.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> Why build</h2>
+      <p>People build for <strong>freedom</strong>, <strong>income</strong>, or because the default path feels like the wrong-shaped shoe.</p>
+      <p class="muted">No TED talk required. If there’s a problem you actually care about, that’s enough fuel.</p>
+      <div class="why-triple">
+        <figure>
+          <img src="blueprint-media/why-money.jpg" alt="Cash and financial reward metaphor" width="400" height="300" />
+          <figcaption>Income · upside</figcaption>
+        </figure>
+        <figure>
+          <img src="blueprint-media/why-freedom.png" alt="Person at sunset with arms open — freedom" width="400" height="300" />
+          <figcaption>Freedom · optionality</figcaption>
+        </figure>
+        <figure>
+          <img src="blueprint-media/why-seed-idea.jpg" alt="Idea and growth metaphor" width="400" height="300" />
+          <figcaption>Idea · growth</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="inspo">
+      <h2><span class="num">03</span> Personal sparks — stuff that got me hooked</h2>
+      <div class="inspo-intro">
+        <p><strong>Not homework. Not required.</strong> Book, movie, two YouTube worlds — stories that make business feel cinematic. Skip what doesn’t land for you. No syllabus — just sparks if you want them.</p>
+      </div>
+      <div class="inspo-grid">
+        <article class="inspo-card">
+          <img src="blueprint-media/zero-to-one.jpg" alt="Zero to One book cover" />
+          <div class="cap">
+            <h3>Zero to One</h3>
+            <p>A lightning strike of a book: why the future belongs to people who invent instead of copy. Sharp, contrarian, and the kind of read that makes your brain race — startup lore with real intellectual edge.</p>
+            <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener">goodreads.com — Zero to One</a>
+          </div>
+        </article>
+        <article class="inspo-card">
+          <img src="blueprint-media/social-network.jpg" alt="The Social Network poster" />
+          <div class="cap">
+            <h3>The Social Network</h3>
+            <p>Dorm room to world stage — pace, ego, and code flying across the screen. It’s Hollywood, not a textbook, but the <em>builder energy</em> is contagious. Watch for momentum, not courtroom accuracy.</p>
+            <a href="https://www.imdb.com/title/tt1285016/" target="_blank" rel="noopener">IMDb — The Social Network</a>
+          </div>
+        </article>
+        <article class="inspo-card">
+          <img src="blueprint-media/magnates-media.png" alt="MagnatesMedia YouTube channel" />
+          <div class="cap">
+            <h3>MagnatesMedia</h3>
+            <p>Business stories shot like cinema: money, power, meltdowns, and “how did they pull that off?” twists. Big production, bigger hooks — dangerously easy to watch just one more.</p>
+            <a href="https://www.youtube.com/@MagnatesMedia" target="_blank" rel="noopener">youtube.com/@MagnatesMedia</a>
+          </div>
+        </article>
+        <article class="inspo-card">
+          <img src="blueprint-media/starter-story.png" alt="Starter Story YouTube channel" />
+          <div class="cap">
+            <h3>Starter Story</h3>
+            <p>Real founders, real numbers, real screwups — tactics you can steal and proof that normal humans ship. If you need “someone like me actually did this” fuel, this is jet fuel.</p>
+            <a href="https://www.youtube.com/@starterstory" target="_blank" rel="noopener">youtube.com/@starterstory</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="idea-section">
+      <div class="idea-top">
+        <h2><span class="num">04</span> The idea</h2>
+        <p class="idea-after">Answer in normal words:</p>
+        <ul class="plain">
+          <li><strong>Who</strong> is it for?</li>
+          <li><strong>What</strong> is one clear thing it helps them <em>do</em>?</li>
+          <li><strong>Why</strong> you — vs doing nothing or using something else?</li>
+        </ul>
+        <div class="idea-thumb">
+          <img src="blueprint-media/idea-lightbulb-color.png" alt="Colorful painted light bulb — creativity and ideas" width="200" height="200" />
+        </div>
+      </div>
+      <div class="pmf-note">
+        <p style="margin:0;"><strong style="color:#e7edf7;">Rough rule from the whiteboard:</strong> the <strong>bigger the pain</strong> and the <strong>more people</strong> who feel it, the more room you have for <strong>product–market fit</strong> — i.e. the more likely something can work if you execute. You’re not hunting “a small annoyance nobody shares.” You’re looking for a real problem with real humans.</p>
+        <p style="margin:0.85rem 0 0;"><strong style="color:#e7edf7;">Look for pain you actually live.</strong> If the idea is tied to something <strong>personal</strong> — a frustration you hit in <strong>daily life</strong> — you start with <strong>domain expertise</strong> without trying: you notice details outsiders miss, and you care enough to stay in the game when it gets boring. Scan your week for “this should not be this annoying.”</p>
+      </div>
+      <div class="fun"><strong>Reality check:</strong> version one can be embarrassing. That’s how you earn version five.</div>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> Cursor = your main guide</h2>
+      <div class="cursor-block">
+        <img src="blueprint-media/cursor-brand.png" alt="Cursor logo" width="220" height="92" />
+        <div>
+          <p style="margin-top:0;"><strong>You don’t need to already know how to code.</strong></p>
+          <p><span class="mono">Cursor</span> is where you chat <strong>next to your project</strong>. Plain sentences — “I want a sign-in screen” — then you build step by step. Ask it to explain like you’re new. Ask what to click.</p>
+        </div>
+      </div>
+      <p>When I say “talk to Cursor,” that’s <strong>literally</strong> how <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> moved from messy idea to something in the App Store: <strong>questions, diffs, fixes, repeat</strong>.</p>
+      <div class="tips-box">
+        <h3><span aria-hidden="true">★</span> Top tips (read this twice)</h3>
+        <ol>
+          <li><strong>Keep build conversations in Cursor.</strong> Don’t run the same project in parallel with ChatGPT “coding coach” threads — split context wasted my time and credits and slowed me down hard. One lane for the codebase.</li>
+          <li><strong>Use Composer 2</strong> for your default <strong>Agent / Ask</strong> flow when you can — for me it’s been <strong>roughly an order of magnitude cheaper</strong> than alternatives I tried, and still very effective (Cursor changes pricing; always check their current page).</li>
+          <li><strong>Ask mode</strong> = questions, explanations, planning. <strong>Agent mode</strong> = bigger multi-file edits — always <strong>review the diff</strong> like a human tech lead.</li>
+          <li><strong>Credits &amp; plans:</strong> you get usage on your plan; if you run out, you <strong>upgrade</strong> or turn on <strong>on-demand</strong> usage and set a <strong>limit / cap</strong> you’re comfortable with — then raise it if needed. (Exact options live in Cursor’s billing settings.)</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> The “stack” in human words</h2>
+      <p class="muted">Scary word, simple meaning: <strong>tools with jobs.</strong> You meet them one at a time. Cursor introduces each when you need it.</p>
+      <p><a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> sits on a normal indie stack — roughly: mobile shell (Expo), cloud data/auth (Firebase), subscriptions (RevenueCat), builds (EAS), Apple’s pipeline, plus bits of hosting/analytics. Yours might differ; the <em>idea</em> is the same: small tools, assembled over time.</p>
+      <table>
+        <thead><tr><th>Tool</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><th>Expo</th><td>Helps you make a <strong>phone app</strong> without drowning in phone-company weirdness at the start.</td></tr>
+          <tr><th>Firebase</th><td>Common home for <strong>accounts</strong> and <strong>saving data</strong> in the cloud.</td></tr>
+          <tr><th>Analytics</th><td>Shows what people <strong>actually use</strong>.</td></tr>
+          <tr><th>RevenueCat</th><td>Helps with <strong>subscriptions</strong> on the phone.</td></tr>
+          <tr><th>Vercel</th><td>Hosts a small <strong>site or API</strong> if you need it.</td></tr>
+          <tr><th>EAS / TestFlight</th><td><strong>Build</strong> the installable app and <strong>test</strong> before the public store.</td></tr>
+          <tr><th>Apple Developer</th><td>Apple’s pass + pipeline for shipping to <strong>iPhone</strong>.</td></tr>
+          <tr><th>OTA vs build</th><td>Sometimes a <strong>quick update</strong>; sometimes a <strong>new store build</strong>. Cursor explains when.</td></tr>
+        </tbody>
+      </table>
+      <div class="stack-logos" aria-label="Example stack logos">
+        <span class="logo-wrap firebase"><img src="blueprint-media/firebase-logomark.png" alt="Firebase" /></span>
+        <span class="logo-wrap"><img src="blueprint-media/revenuecat-logo.png" alt="RevenueCat" /></span>
+        <span class="logo-wrap expo-eas"><img src="blueprint-media/expo-eas-build.png" alt="Expo Go to EAS Build" /></span>
+        <span class="logo-wrap"><img src="blueprint-media/vercel-logo.png" alt="Vercel" /></span>
+        <span class="logo-wrap app-store"><img src="blueprint-media/app-store-icon.png" alt="Apple App Store" /></span>
+        <span class="logo-wrap testflight"><img src="blueprint-media/testflight-icon.png" alt="Apple TestFlight" /></span>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span> Order that usually works</h2>
+      <ol class="steps">
+        <li>Write <strong>one paragraph</strong>: who, what, one main action.</li>
+        <li>Start the project with Cursor (it tells you what to install).</li>
+        <li>Make <strong>one thing</strong> work — e.g. open app → one screen.</li>
+        <li>Add the next <strong>small</strong> piece (sign-in, save one thing…).</li>
+        <li>Put it on <strong>your phone</strong>; <strong>use it yourself</strong> and note what breaks — no shame, just data.</li>
+        <li>Friends test; you watch what confuses them.</li>
+        <li>Ship when it’s <strong>stable enough</strong>; keep iterating.</li>
+      </ol>
+      <p class="aside" style="margin-top:0.85rem;">Magic question: <em>“What’s the smallest next step?”</em></p>
+      <div class="section-visual section-photo">
+        <img src="blueprint-media/order-coding.png" alt="Hands typing code on a laptop" width="800" height="450" />
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span> Showing the world</h2>
+      <p>You’re allowed to market before you feel “ready.” A clear short video beats a perfect deck.</p>
+      <p class="muted">AI can <strong>draft</strong> hooks and captions — <strong>you</strong> keep what’s true and what sounds like you.</p>
+      <div class="section-visual section-photo">
+        <img src="blueprint-media/showing-world-keynote.png" alt="Keynote on stage — presenting to an audience" width="800" height="450" />
+      </div>
+    </section>
+
+    <div class="cta-open">
+      <h2 style="margin:0 0 0.75rem; font-size:1.2rem; border:none; padding:0;">Write to me — for real</h2>
+      <p>I’m giving you this blueprint <strong>for free</strong> because someone should have handed it to me earlier.</p>
+      <p>If you’re stuck — error message, blank screen, “is my idea stupid,” anything — <strong>message me</strong>. I’m not here to sell you a $997 cohort. I want to pass on what I learned, answer questions, and help more people feel what it’s like to <strong>build toward freedom</strong>.</p>
+      <p class="muted" style="margin:0;">So don’t wait — start. I’m here when you’re stuck.</p>
+      <div class="section-visual section-photo">
+        <img src="blueprint-media/write-to-me-helping.png" alt="One person helping another climb — reaching out a hand" width="800" height="450" />
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="big">You’re in</div>
+      <p class="muted" style="margin:0 0 0.85rem;">You already reached out — this doc is your map. Pick the <strong>smallest</strong> next step and run it; message me when you hit a wall and I’ll help you untangle it.</p>
+      <p style="margin:0; color:#c8d4ea;">Curious about the app that came out of this journey? Open <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> on the App Store — set a goal, take one small action, see how it feels.</p>
+    </div>
+
+    <footer>
+      <strong style="color:#cbd5e1;">Elizabeth Mukhina</strong> — Founder of <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a><br />
+      Educational notes from personal experience — not legal or financial advice. Building involves platform rules, privacy, and your own judgment.<br />
+      <span style="color:var(--seed);">Start before you’re ready. That’s how the future gets written.</span>
+    </footer>
+  </div>
+</body>
+</html>

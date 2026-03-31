@@ -1,16 +1,12 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Dependencies
 node_modules/
 
 # Expo
 .expo/
 dist/
 web-build/
-expo-env.d.ts
 
-# Native
-.kotlin/
+# Native builds
 *.orig.*
 *.jks
 *.p8
@@ -21,7 +17,7 @@ expo-env.d.ts
 # Metro
 .metro-health-check*
 
-# debug
+# Debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
@@ -30,12 +26,23 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# Local env files - IMPORTANT: Never commit API keys!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 
-# generated native folders
-/ios
-/android
+# Testing
+coverage/
+
+# Next.js marketing site (build output + deps)
+website/.next/
+website/node_modules/
+
+# Firebase client configs (use EAS/env locally; avoid publishing in public repos)
+firebase/GoogleService-Info.plist
+firebase/google-services.json

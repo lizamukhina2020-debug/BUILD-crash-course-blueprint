@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "d07d0bad-e445-45e1-af82-2bf1a3d12f3e"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.lizacoding.seedmindcloudrunapi",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    }
+  }
+}

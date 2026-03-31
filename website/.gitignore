@@ -1,0 +1,3 @@
+.vercel
+# Generated from ../docs/ by npm run sync-blueprint (predev / prebuild)
+public/build

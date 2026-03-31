@@ -1,0 +1,937 @@
+{
+  "common": {
+    "skip": "Skip",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "remove": "Remove",
+    "save": "Save",
+    "edit": "Edit",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo_one": "{{count}} day ago",
+    "daysAgo_other": "{{count}} days ago",
+    "back": "Back",
+    "gotIt": "Got it!",
+    "done": "Done",
+    "tryAgain": "Please try again."
+  },
+  "onboarding": {
+    "hook": {
+      "line1": "There's something about your mind",
+      "line2": "no one ever told you."
+    },
+    "cinema": {
+      "every": "Every",
+      "everyThought": "Every",
+      "everyWord": "Every",
+      "everyAction": "Every",
+      "thought": "thought.",
+      "word": "word.",
+      "action": "action.",
+      "plants": "Plants",
+      "aSeed": "a seed."
+    },
+    "revelation": {
+      "line1": "What you plant today",
+      "line2": "becomes your tomorrow."
+    },
+    "challenge": {
+      "line1": "You don't have to believe this.",
+      "line2": "Plant seeds for what you want.",
+      "line3": "And finally understand how life really works."
+    },
+    "imIn": "I'm in",
+    "begin": "Begin",
+    "notifications": {
+      "title": "Allow notifications?",
+      "body": "Get gentle daily reminders to meditate, protect your streak, and come back to the seeds you planted.",
+      "allow": "Allow notifications",
+      "notNow": "Not now"
+    },
+    "legal": {
+      "prefix": "By continuing, you agree to our",
+      "terms": "Terms",
+      "and": "and",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "chat": {
+    "welcome": {
+      "title": "Welcome back",
+      "newChat": "New Conversation",
+      "history": "History"
+    },
+    "input": {
+      "placeholder": "Share what's on your mind...",
+      "placeholderHarvested": "Continue the conversation...",
+      "send": "Send"
+    },
+    "seedsGuide": {
+      "name": "Seeds Guide",
+      "typing": "thinking...",
+      "subtitle": "Your companion for growth"
+    },
+    "usage": {
+      "messagesUsed": "Messages: {{used}}/{{limit}} used",
+      "unlimitedMessages": "1,000 messages"
+    },
+    "initialMessages": {
+      "guidedWelcome": "Welcome to SeedMind ☕\n\nI'm here to help you understand how the seeds you plant in life shape your reality.",
+      "directWelcome": "Hey there! ☕️\n\nTell me any problem or goal you have.\nI’ll answer through the seeds lens, with practical next steps. 🌱✨"
+    },
+    "modeSelection": {
+      "title": "What brings you here today?",
+      "problemTitle": "Something's on my mind",
+      "problemSubtitle": "I need support with a challenge",
+      "goalTitle": "I have a goal",
+      "goalSubtitle": "Help me achieve something"
+    },
+    "modeOpeners": {
+      "problem": "What's been weighing on you lately? Share what you're going through, and together we'll explore what might be at play.",
+      "goal": "That's exciting! ✨ Tell me about your goal – what do you want to achieve? The more specific, the better I can help you plant the right seeds."
+    },
+    "starters": {
+      "money": "I'm struggling with money",
+      "relationships": "My relationships feel stuck",
+      "peace": "I can't find inner peace",
+      "career": "I feel stuck in my career",
+      "health": "I'm dealing with health issues",
+      "lonely": "I feel lonely and isolated",
+      "competition": "I want to win a competition",
+      "promoted": "I want to get promoted",
+      "soulmate": "I want to find my soulmate",
+      "moreMoney": "I want to make more money",
+      "exams": "I want to ace my exams",
+      "business": "I want to start my business"
+    },
+    "prompts": {
+      "whatsOnHeart": "What's on your heart?",
+      "popularGoals": "Popular goals:",
+      "whatsOnMind": "What's on your mind?"
+    },
+    "cards": {
+      "plantSeeds": "Plant Seeds",
+      "meditate": "Meditate",
+      "goToGarden": "Go to Garden 🌱",
+      "viewGarden": "View Garden",
+      "startNewJourney": "Start New Journey",
+      "tapToCollapse": "tap to collapse",
+      "tapToExpand": "tap to expand"
+    },
+    "actions": {
+      "sendFirstTitle": "One small step",
+      "sendFirstBody": "Send one message first so I can tailor your seeds and meditation to this journey. Then these buttons unlock. 🌱",
+      "sendFirstHint": "Send one message to unlock these actions. 🌱"
+    },
+    "help": {
+      "buttons": "You’ll find Plant Seeds 🌱 and Meditate ☕ under the chat. If they’re greyed out, send one message first. Long-press a message to select and copy text, like in other apps.",
+      "plantSeeds": "To plant seeds: tap Plant Seeds 🌱 under the chat, write the kind actions you already did, then save. They’ll show up in your Garden.",
+      "meditate": "To do a coffee meditation: tap the Meditations ☕ tab at the bottom, then choose a meditation. (You can also tap Meditate ☕ under the chat.)",
+      "waterSeeds": "Watering seeds = doing a ☕ coffee meditation. The name is a metaphor: you visualize someone you helped, feel their happiness as vividly as the pleasure of sipping a warm drink — not about actually drinking coffee (that’s optional).\n\nThink of it as a powerful way to speed up your seeds’ growth: it’s a catalyst for seeds you’ve already planted, helping your reality shift faster.\n\nMany people like to do this when they’re calm — often right before sleep — but you can use it at other quiet moments too.\n\nAfter it ends, you’ll choose which seeds you watered.\n\nCoffee meditation = remember a kind act you did, feel the other person’s joy as your own, and dedicate that goodness to your goal, your karmic partner’s goal, and the wellbeing of all living beings.",
+      "garden": "To view journeys: open the My Garden tab. Tap a journey to see its seeds. Use the 3 dots (⋯) on a journey to rename or delete it.",
+      "newJourney": "To start a new journey: tap the + in the top-right to create a new conversation."
+    },
+    "gardenTicket": {
+      "confirmTitle": "Use a Garden Journey?",
+      "confirmBody": "This will use 1 Garden Journey to enable planting in this conversation.\n\nYou will have {{remaining}} left in this cycle.",
+      "confirmContinue": "Continue"
+    },
+    "logSeeds": {
+      "title": "What Seeds Did You Plant? 🌱",
+      "subtitle": "Describe the kind acts you did today or before. Who did you help? What did you do?",
+      "placeholder": "e.g., I bought coffee for a colleague who was having a hard day...",
+      "addButton": "+ Add Seed",
+      "readyToWater": "{{count}} seed(s) planted today! Ready to water them?",
+      "startMeditation": "🎧 Start Audio Meditation",
+      "switchToChat": "💬 Rather share how you're feeling?"
+    },
+    "seedModal": {
+      "title": "Plant Your Seeds",
+      "subtitle": "Write down seeds you already planted—kind actions you did today or remember from before",
+      "savingToJourney": "Journey: {{title}}",
+      "newTopicHint": "New topic → +",
+      "whoHelped": "Who did you help?",
+      "whatYouDid": "What did you do?",
+      "actionPlaceholder": "What kind action did you do?",
+      "whoPlaceholder": "A friend, colleague, stranger...",
+      "addSeed": "Add",
+      "plantAll": "Plant All Seeds",
+      "plantSeeds_one": "Plant {{count}} Seed in Garden",
+      "plantSeeds_other": "Plant {{count}} Seeds in Garden",
+      "addSeedsFirst": "Add seeds to plant",
+      "seedsPlanted": "seeds planted"
+    },
+    "history": {
+      "title": "Conversations",
+      "empty": "No conversations yet",
+      "emptyHint": "Start sharing what's on your mind",
+      "newTopicTip": "New topic? Tap + for a new chat.",
+      "harvested": "Harvested",
+      "seeds": "seeds",
+      "daysAgo_one": "{{count}} day ago",
+      "daysAgo_other": "{{count}} days ago"
+    },
+    "phases": {
+      "mirrorTitle": "The Mirror",
+      "mirrorHint": "Tap to review the connection",
+      "seedIdeasTitle": "Your Seeds",
+      "seedIdeasHeavy": "Seeds of Change",
+      "readyToPlant": "Ready to Plant",
+      "reciprocalLaw": "To get what you want, help others get it first",
+      "completed": "Completed ✓",
+      "sharing": "Sharing feelings",
+      "exploring": "Exploring the mirror",
+      "understanding": "Understanding seeds",
+      "gettingIdeas": "Getting ideas",
+      "logging": "Logging seeds",
+      "meditating": "Meditating",
+      "inProgress": "In progress"
+    },
+    "harvested": {
+      "status": "Harvested",
+      "badge": "✨ Harvested",
+      "message": "This journey has been harvested! Share any updates or start a new journey for new goals."
+    },
+    "topicChangePrompt": {
+      "title": "It sounds like you might be dealing with something new.",
+      "text": "Each challenge deserves its own focused journey — with its own seeds and meditation.",
+      "question": "Would you like to start a fresh conversation for this?",
+      "startFresh": "Yes, start fresh",
+      "continueHere": "Continue here"
+    },
+    "alerts": {
+      "harvestedTitle": "🌾 This Journey is Complete",
+      "harvestedMessage": "You've harvested the seeds from this journey!\n\nTo plant new seeds, tap the \"+\" button to start a fresh journey.",
+      "newJourneyButton": "Start New Journey",
+      "deleteConvoTitle": "Delete Conversation",
+      "deleteConvoMessage": "Delete this conversation? Your seeds will stay safe in your garden—only the chat history will be removed.",
+      "saveError": "Could not save your seeds. Please try again."
+    },
+    "system": {
+      "directSeedsSaved_one": "🌱 {{count}} seed planted in your garden!\n\nHead to the ☕ Meditations tab to water your seeds — it’s a powerful way to speed up your seeds’ growth. “Coffee meditation” is a metaphor: you visualize who you helped, feel their happiness like the comfort of a warm drink, and dedicate that good. It acts as a catalyst for seeds you’ve already planted. Coffee is optional; being calm helps — many people do this before sleep.",
+      "directSeedsSaved_other": "🌱 {{count}} seeds planted in your garden!\n\nHead to the ☕ Meditations tab to water your seeds — it’s a powerful way to speed up your seeds’ growth. “Coffee meditation” is a metaphor: you visualize who you helped, feel their happiness like the comfort of a warm drink, and dedicate that good. It acts as a catalyst for seeds you’ve already planted. Coffee is optional; being calm helps — many people do this before sleep.",
+
+      "guidedSeedsSaved_one": "Perfect! I've saved your {{count}} seed. 🌱\n\nNow head to your meditation: \"{{meditationTitle}}\"\n\nWhen you're done, come back here and I'll celebrate your growth with you. ☕✨",
+      "guidedSeedsSaved_other": "Perfect! I've saved your {{count}} seeds. 🌱\n\nNow head to your meditation: \"{{meditationTitle}}\"\n\nWhen you're done, come back here and I'll celebrate your growth with you. ☕✨",
+
+      "meditationCompleted": {
+        "footer": "\n\nThis is how you change your reality — one seed at a time, one day at a time.\n\nThe more you plant, the faster things shift. Keep going! 🌱☕",
+        "zeroPlanted": "Beautiful. You watered {{watered}} seeds with your meditation today. ✨",
+        "oneOne": "Beautiful. You planted one seed today and watered it with your meditation. ✨",
+        "oneMany": "Beautiful. You planted one seed today and watered {{watered}} seeds with your meditation. ✨",
+        "manyOne": "Beautiful. You planted {{planted}} seeds today and watered one seed with your meditation. ✨",
+        "manyMany": "Beautiful. You planted {{planted}} seeds today and watered {{watered}} seeds with your meditation. ✨"
+      }
+    }
+  },
+  "garden": {
+    "title": "My Garden",
+    "growthJourney": "Growth Journey",
+    "growthHint": {
+      "title": "Want to speed up growth?",
+      "body": "Seeds grow on their own over time, but coffee meditation speeds them up. If you want to reach “Sprout” sooner — water your seeds with meditation."
+    },
+    "growthCongrats": {
+      "title": "✨ {{stageName}}: +{{count}}",
+      "body": "{{countText}} reached “{{stageName}}”. Your reality is already starting to shift — keep doing coffee meditations to amplify that momentum.",
+      "bodyHarvested": "{{countText}} reached “Harvest”. This has already grown into your reality. Water your other seeds with coffee meditation so they can reach harvest too."
+    },
+    "growthLegend": {
+      "title": "Growth Stages",
+      "day0": "Day 0",
+      "days1to2": "1–2 days",
+      "days3to6": "3–6 days",
+      "days7plus": "7+ days",
+      "harvested": "Harvested",
+      "hint": "Meditations help your seeds grow faster."
+    },
+    "empty": {
+      "title": "Plant your first seed!",
+      "subtitle": "Plant your first seeds by chatting with the Seeds Guide",
+      "message": "Chat with the Seeds Guide to log your kind acts.\nThey'll appear here and grow as you meditate.",
+      "button": "Start Planting"
+    },
+    "stats": {
+      "totalSeeds": "Total Seeds",
+      "thisWeek": "This Week",
+      "harvested": "Harvested",
+      "streak": "Day Streak"
+    },
+    "sections": {
+      "activeSeeds": "My Journeys",
+      "harvestedSeeds": "Harvested",
+      "byCategory": "By Category"
+    },
+    "filters": {
+      "all": "All",
+      "growing": "Growing",
+      "harvested": "Harvested",
+      "noneHarvested": "No harvested fruit yet. Keep watering!",
+      "noneInCategory": "No seeds in this category."
+    },
+    "seedCard": {
+      "tapToReadMore": "tap to read more",
+      "tapToCollapse": "tap to collapse"
+    },
+    "seed": {
+      "tapToReadMore": "tap to read more",
+      "tapToCollapse": "tap to collapse",
+      "daysWatered": "days watered",
+      "planted": "Planted"
+    },
+    "problem": {
+      "seeds_one": "seed",
+      "seeds_other": "seeds",
+      "fruits_one": "fruit",
+      "fruits_other": "fruit",
+      "solved": "Solved!",
+      "waterSeeds": "Water your seeds →"
+    },
+    "actions": {
+      "harvest": "Harvest",
+      "waterSeeds": "Water your seeds"
+    },
+    "harvest": {
+      "button": "Harvest",
+      "title": "Time to Harvest",
+      "subtitle": "What emerged from your {{emoji}} {{category}} journey?",
+      "seedCount_one": "{{count}} seed contributed to this story",
+      "seedCount_other": "{{count}} seeds contributed to this story",
+      "emotionLabel": "How do you feel?",
+      "storyLabel": "What are you taking from this experience?",
+      "storyHint": "(What emerged that you want to hold onto?)",
+      "storyPlaceholder": "e.g., I discovered I'm a natural leader, I built an amazing team, I was recognized for who I really am...",
+      "saveStory": "Save My Story",
+      "complete": "Complete Harvest",
+      "skip": "Skip Story",
+      "success": "🌾 Harvest Complete!",
+      "successMessage": "Your journey is complete. Whatever emerged is now part of your story. Keep planting seeds!",
+      "confirmTitle": "🌾 Ready to Harvest?",
+      "confirmBody": "Did you reach your goal for “{{title}}”?\n{{seedCountText}}.\n\nIf yes — harvest to close this goal. 💜\n\n⚠️ This action can't be undone.",
+      "confirmCancel": "Not yet",
+      "confirmAction": "🌾 Harvest",
+      "completeTitle": "🌾 Harvest Complete!",
+      "completeBodyWithStory": "Your story for \"{{title}}\" is now part of your journey.\n\nWhat emerged may be different from what you planned — and that's beautiful. Keep planting seeds! 💜",
+      "completeBodyNoStory": "Your \"{{title}}\" journey is complete.\n\nWhatever emerged is now part of your story. Keep planting seeds! 💜",
+      "completeButton": "Beautiful!"
+    },
+    "categoryPrompt": {
+      "title": "Want to label a category for this journey?",
+      "chooseCategory": "Choose category",
+      "notNow": "Not now"
+    },
+    "categoryPicker": {
+      "title": "Choose a category"
+    },
+    "generalLabel": {
+      "title": "What should we call this category?",
+      "placeholder": "For example: Lose weight",
+      "errorNeedNameOrEmoji": "Add a name, an emoji, or both.",
+      "emojiLabel": "Journey emoji",
+      "emojiPlaceholder": "Emoji (optional)",
+      "emojiHint": "Open the emoji keyboard on your phone and pick any emoji. You can save with just an emoji if you prefer.",
+      "meditationLabel": "Choose your meditation",
+      "save": "Save"
+    },
+    "alerts": {
+      "removeSeed": {
+        "title": "Remove seed?",
+        "message": "Are you sure you want to remove this seed from your garden?",
+        "confirm": "Remove"
+      },
+      "deleteProblem": {
+        "title": "🗑️ Delete Problem",
+        "message": "Are you sure you want to delete \"{{title}}\" and all {{count}} seeds?\n\nThis will remove them from your garden, stats, and growth journey.\n\n⚠️ This can’t be undone. Deleting won’t restore your monthly garden limit.",
+        "confirm": "Delete"
+      },
+      "deleted": {
+        "title": "Deleted",
+        "message": "\"{{title}}\" and {{count}} seeds have been removed from your garden."
+      }
+    },
+    "undo": {
+      "deleted": "Deleted “{{title}}” ({{count}} seeds).",
+      "undo": "Undo"
+    },
+    "delete": {
+      "seedTitle": "Remove seed?",
+      "seedMessage": "Are you sure you want to remove this seed from your garden?",
+      "problemTitle": "🗑️ Delete Problem",
+      "problemMessage": "Are you sure you want to delete this and all its seeds? This action cannot be undone.",
+      "success": "Deleted"
+    },
+    "growth": {
+      "seed": "Seed",
+      "sprout": "Sprout",
+      "seedling": "Seedling",
+      "blooming": "Blooming",
+      "harvested": "Harvested"
+    },
+    "streakTooltip": {
+      "title": "🔥 Streak Info",
+      "current": "Current streak",
+      "longest": "Longest streak",
+      "days": "days",
+      "keepGoing": "Keep meditating daily to grow your streak!"
+    }
+  },
+  "meditations": {
+    "title": "Meditations",
+    "player": {
+      "badge": "Coffee Meditation",
+      "readMore": "Read more",
+      "showLess": "Show less",
+      "wateringNoteTitle": "Water your seeds after",
+      "wateringNoteBody": "Watering seeds = completing a coffee meditation.\n\nAfter the meditation you’ll be asked which seeds you watered. Don’t exit early — otherwise your progress won’t be saved.",
+      "completionSeedsWateredTitle": "Seeds Watered!",
+      "completionMeditationCompleteTitle": "Meditation Complete!",
+      "completionSeedsWateredBody": "You watered {{count}} seed(s). They're growing stronger!",
+      "completionNoWateringBody": "Come back anytime to do a coffee meditation and water your seeds.",
+      "completionStreakHint": "Your streak continues 🔥",
+      "completionDone": "Done ✨",
+      "previewTitle": "Beautiful Meditation!",
+      "previewBody": "This practice works best when you have seeds to water. Plant some seeds first, then meditate on them to help them grow.",
+      "previewHint": "💡 Think of it like a garden — you need seeds first!",
+      "previewPlantFirstSeeds": "🌱 Plant My First Seeds",
+      "previewMaybeLater": "Maybe Later",
+      "audioComingSoonTitle": "Audio Coming Soon",
+      "audioComingSoonBody": "This meditation audio is being prepared. You can still complete your meditation and water your seeds!",
+      "audioComingSoonCancel": "Cancel",
+      "audioComingSoonDone": "I'm Done Meditating"
+    },
+    "audioNotice": {
+      "title": "Audio is currently in English",
+      "body": "Russian audio is coming soon."
+    },
+    "featured": "Featured",
+    "explore": "Explore",
+    "recommended": "Recommended for You",
+    "allMeditations": "All Meditations",
+    "todaysProgress": "Today's Progress",
+    "seedsPlanted": "Seeds Planted",
+    "meditationsCount": "Meditations",
+    "duration": "min",
+    "sessions": "types",
+    "comingSoon": "Coming Soon",
+    "greetings": {
+      "morning": "Good Morning ✨",
+      "afternoon": "Good Afternoon ✨",
+      "evening": "Good Evening ✨"
+    },
+    "badges": {
+      "basedOnSeeds": "🌱 Based on Your Seeds",
+      "tonightRecommendation": "Tonight's Recommendation",
+      "tapToStart": "Tap to start your meditation and water your seeds ☕"
+    },
+    "banner": {
+      "seedsSaved": "🌱 Your seeds are saved! Complete your meditation below, then return to the chat for your celebration."
+    },
+    "quote": {
+      "text": "The seeds you plant today determine\nthe garden you walk through tomorrow."
+    },
+    "tips": {
+      "pastSeeds": "No new seeds today? That's okay! Meditate on any past kindness—even from years ago. Every meditation helps those seeds grow."
+    },
+    "categories": {
+      "all": "All",
+      "abundance": "Abundance",
+      "relationships": "Love",
+      "health": "Health",
+      "peace": "Inner Peace",
+      "clarity": "Clarity"
+    },
+    "items": {
+      "1": {
+        "title": "Planting Seeds of Abundance",
+        "subtitle": "For Financial Wellbeing",
+        "description": "Discover how small acts of generosity today create ripples of prosperity in your tomorrow. Like a coffee bean that transforms into a rich brew, your kind actions transform into abundance."
+      },
+      "2": {
+        "title": "The Mirror of Love",
+        "subtitle": "For Relationships",
+        "description": "See how the love you give reflects back to you. When you water the seeds of compassion, beautiful relationships bloom in the garden of your life."
+      },
+      "3": {
+        "title": "Seeds of Vitality",
+        "subtitle": "For Health & Energy",
+        "description": "Your body is a garden. Learn how caring for others plants seeds of wellness that blossom into vibrant health and boundless energy."
+      },
+      "4": {
+        "title": "Daily Gratitude Brew",
+        "subtitle": "Daily Reflection",
+        "description": "Like savoring the last sip of your favorite coffee, this meditation helps you appreciate the seeds you planted today and prepare for tomorrow's harvest."
+      },
+      "5": {
+        "title": "Clarity Through Giving",
+        "subtitle": "For Mental Clarity",
+        "description": "When the mind feels clouded, remember: helping others find their way clears the fog in your own path. Plant seeds of guidance, harvest clarity."
+      },
+      "6": {
+        "title": "The Coffee Shop of the Soul",
+        "subtitle": "Finding Inner Peace",
+        "description": "Imagine a cozy corner in the coffee shop of your soul. Here, you learn how each act of kindness is like a warm cup that fills your heart with peace."
+      }
+    },
+    "streak": {
+      "title": "Streak",
+      "start": "Start",
+      "days_one": "day",
+      "days_other": "days",
+      "tooltipTitle": "🔥 Meditation Streak",
+      "tooltipText1": "Your streak tracks consecutive days you've completed a coffee meditation.",
+      "tooltipText2": "Even meditating on past seeds counts! Miss a day and it resets, but don't worry—your garden, seeds, and all your progress stay forever. 🌱",
+      "currentLabel": "Current",
+      "longestLabel": "Longest"
+    }
+  },
+  "player": {
+    "nowPlaying": "Now Playing",
+    "seedsToWater": "Seeds to water",
+    "complete": "Complete",
+    "pause": "Pause",
+    "play": "Play",
+    "restart": "Restart",
+    "seedSelection": {
+      "title": "Which seeds did you water?",
+      "subtitle": "Select only the seeds you actually visualized during your meditation.",
+      "emptyTitle": "No seeds to water yet",
+      "emptyBody": "Plant some seeds in chat first, then come back here to water them with meditation.",
+      "selectAll": "Select all",
+      "clear": "Clear",
+      "selectAllJourney": "Select all",
+      "clearJourney": "Clear",
+      "matchBadge": "Matches this meditation",
+      "selectedInJourney": "Selected: {{selected}} of {{total}}",
+      "selectedCount_one": "{{count}} selected",
+      "selectedCount_other": "{{count}} selected",
+      "confirm": "Water selected"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "common": {
+      "comingSoonTitle": "Coming Soon",
+      "comingSoonBody": "This feature will be available once the app is published."
+    },
+    "sections": {
+      "notifications": "🔔 Notifications",
+      "sounds": "🔊 Sounds",
+      "journey": "📊 Your Journey",
+      "support": "💬 Support",
+      "legal": "📜 Legal",
+      "share": "💝 Share the Love",
+      "data": "🗑️ Data Management",
+      "language": "🌍 Language"
+    },
+    "reminders": {
+      "title": "🔔 Daily Reminders",
+      "description": "For planting seeds and watering your garden",
+      "enableLabel": "Enable Reminders",
+      "enabledHint": "You'll receive daily notifications",
+      "disabledHint": "Reminders are turned off",
+      "webUnsupportedHint": "Not supported on web (works on iOS/Android).",
+      "timeLabel": "Reminder Time",
+      "dailyAt": "Daily at {{time}}",
+      "sendTest": "🧪 Send Test Notification"
+    },
+    "notifications": {
+      "evening": "Evening Reminders",
+      "eveningHint": "Daily reminder to plant seeds",
+      "time": "Reminder Time",
+      "disabled": "Enable notifications to set time",
+      "permissionRequiredTitle": "Permission Required",
+      "permissionRequiredBody": "Please enable notifications in your device settings to receive daily reminders.",
+      "enableFirstBody": "Please enable notifications first.",
+      "testSentTitle": "Test Sent! 🌱",
+      "testSentBody": "Check your notifications in a moment."
+    },
+    "sounds": {
+      "meditation": "Meditation Audio",
+      "meditationOn": "Audio will play during meditations",
+      "meditationOff": "Meditations will be silent"
+    },
+    "journey": {
+      "description": "Your progress stays forever—streaks are just motivation!",
+      "seedsPlanted": "Seeds Planted",
+      "totalSeeds": "Total Seeds",
+      "harvested": "Harvested",
+      "meditations": "Meditations",
+      "currentStreak": "Current Streak",
+      "longestStreak": "Longest Streak",
+      "days": "days"
+    },
+    "support": {
+      "description": "Get help or learn more about SeedMind",
+      "howItWorksLabel": "📖 How It Works",
+      "howItWorksTitle": "🌱 How SeedMind Works",
+      "howItWorksBody": "SeedMind is based on the principle that our actions create our reality—like planting seeds that grow into the experiences we harvest.\n\n1️⃣ Share what's on your mind\n2️⃣ Discover the mirror principle\n3️⃣ Plant seeds of kindness in daily life\n4️⃣ Water your seeds with meditation\n5️⃣ Watch your reality transform\n\nThe more you give, the more comes back to you. It's that simple!",
+      "faqLabel": "❓ FAQ",
+      "faqTitle": "❓ Frequently Asked Questions",
+      "faqBody": "🤔 What are \"seeds\"?\nSeeds are the thoughts, words and actions you make every moment. They plant the future you live—and become the harvest you receive.\n\n☕ Do I need coffee to meditate?\nNo! The \"coffee\" is just a cozy metaphor. Meditate however feels right to you.\n\n📋 Can I copy chat text?\nYes. Long-press a message in Seeds Guide to highlight and copy, like in other apps.\n\n🔥 What if I miss a day?\nYour streak resets, but your progress never disappears. Every seed you've planted still counts!\n\n🌿 How do seeds grow?\nWhen you meditate on a seed, you \"water\" it. Each meditation strengthens your seeds—keep watering and trust the process!",
+      "thanksButton": "Thanks!",
+      "contactLabel": "✉️ Contact Support",
+      "emailSubject": "SeedMind Support"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "privacyLabel": "🔒 Privacy Policy",
+      "termsLabel": "📋 Terms of Service",
+      "supportLabel": "🆘 Support"
+    },
+    "share": {
+      "description": "Help others discover the power of seeds",
+      "share": "Share App",
+      "rate": "Rate Us",
+      "shareTitle": "Share SeedMind",
+      "shareMessage": "🌱 I've been using SeedMind to cultivate positive changes in my life through kindness and meditation. Check it out!"
+    },
+    "premium": {
+      "title": "Premium",
+      "descriptionActive": "Premium is active on this account.",
+      "descriptionInactive": "Unlock all meditations and remove limits.",
+      "labelActive": "✅ Premium active",
+      "labelInactive": "Upgrade to Premium",
+      "hintInactive": "Monthly and yearly plans available. Cancel anytime.",
+      "freeIncludes": "Free includes: {{messages}} messages / {{days}} days · {{journeys}} Garden Journeys / {{days}} days · {{daily}} only",
+      "viewPlans": "View plans",
+      "upgrade": "Upgrade",
+      "manage": "Manage"
+    },
+    "developer": {
+      "title": "Developer",
+      "description": "Testing tools for paywall/limits (not shown in production).",
+      "forcePremiumLabel": "Force Premium (Testing)",
+      "forcePremiumHint": "Unlock everything and bypass limits in dev builds.",
+      "forceFreeLabel": "Force Free (Testing)",
+      "forceFreeHint": "Simulate a free user even if a sandbox subscription is active.",
+      "resetPremiumState": "Reset Premium State (Testing)"
+    },
+    "data": {
+      "conversationsSaved_one": "{{count}} conversation saved",
+      "conversationsSaved_other": "{{count}} conversations saved",
+      "signedInWithApple": "Signed in with Apple",
+      "appleRelayHint": "This is an Apple relay email (“Hide My Email”) that forwards to your Apple ID inbox.",
+      "signOutLabel": "Sign out",
+      "signOutTitle": "Sign out?",
+      "signOutBody": "You’ll be returned to the Start screen. You can sign in again anytime.",
+      "signOutConfirm": "Sign out",
+      "deleteAccountLabel": "Delete account",
+      "deleteAccountDeleting": "Deleting account…",
+      "deleteAccountTitle": "Delete account?",
+      "deleteAccountBody": "This permanently deletes your SeedMind account and clears your cloud data.\n\nThis can’t be undone.",
+      "deleteAccountConfirm": "Delete account",
+      "deleteAccountSuccessTitle": "Account deleted",
+      "deleteAccountSuccessBody": "Your account and data have been deleted.",
+      "deleteAccountErrorTitle": "Couldn’t delete account",
+      "deleteAccountErrorBody": "Please try again in a moment.",
+      "deleteAccountReauthTitle": "Sign in again to delete",
+      "deleteAccountReauthBody": "For security, Apple requires a recent sign-in before deleting an account.\n\nPlease sign in again, then return to Settings and delete your account.",
+      "deleteAccountNotSignedInTitle": "Not signed in",
+      "deleteAccountNotSignedInBody": "Please sign in first, then you can delete your account from Settings.",
+      "replayOnboardingLabel": "🌱 Replay Onboarding",
+      "replayOnboardingTitle": "Replay Onboarding",
+      "replayOnboardingBody": "Would you like to see the welcome introduction again? The app will restart to show the onboarding.",
+      "replayOnboardingConfirm": "Replay",
+      "replayOnboardingSuccessTitle": "Onboarding Reset",
+      "replayOnboardingSuccessBody": "You can now replay the onboarding from the Start screen.",
+      "clearChatLabel": "Clear Chat History",
+      "clearChatTitle": "Clear Chat History",
+      "clearChatBody": "This will delete all your conversations. Your seeds, meditation history, and streaks will stay safe.",
+      "clearChatConfirm": "Clear",
+      "clearChatSuccessTitle": "Chats Cleared",
+      "clearChatSuccessBody": "Your conversation history has been cleared.",
+      "resetAllLabel": "Reset All Data",
+      "resetAllTitle": "Reset All Data",
+      "resetAllBody": "This will delete all your seeds, meditation history, streaks, AND conversations. This cannot be undone.",
+      "resetAllConfirm": "Reset Everything",
+      "resetAllSuccessTitle": "Data Reset",
+      "resetAllSuccessBody": "All your data has been cleared.",
+      "clear": "Clear All Data",
+      "clearHint": "Remove all seeds, history, and settings",
+      "confirmTitle": "Clear All Data?",
+      "confirmMessage": "This will permanently delete all your seeds, meditation history, and settings. This action cannot be undone.",
+      "confirmButton": "Clear Everything",
+      "success": "All data has been cleared"
+    },
+    "about": {
+      "title": "ℹ️ About SeedMind",
+      "body": "SeedMind helps you cultivate positive changes in your life through the power of kind actions and mindful meditation.",
+      "version": "Version {{version}}"
+    },
+    "language": {
+      "current": "App Language",
+      "english": "English",
+      "russian": "Русский"
+    }
+  },
+  "paywall": {
+    "currentPlan": "Current plan: {{plan}}",
+    "currentPlanBadge": "Current",
+    "title": "SeedMind Premium",
+    "heroTitle": "Unlock your full journey",
+    "heroBody": "Premium removes limits and unlocks the full meditation library.",
+    "freeIncludes": "Free includes: {{messages}} messages / {{days}} days · {{journeys}} Garden Journeys / {{days}} days · {{daily}} only",
+    "benefits": {
+      "allMeditations": "Unlock all meditations",
+      "unlimitedJourneys": "Unlimited Garden Journeys",
+      "messagesPerCycle": "Up to 1000 messages per billing cycle"
+    },
+    "benefitsActive": {
+      "allMeditations": "Unlocked all meditations",
+      "unlimitedJourneys": "Unlimited Garden Journeys",
+      "messagesPerCycle": "Up to 1000 messages per billing cycle"
+    },
+    "choosePlan": "Choose a plan",
+    "loadingPlans": "Loading plans…",
+    "loadingStatus": "Checking your subscription…",
+    "noPlans": "Plans aren’t available yet. This usually means the RevenueCat Offering isn’t set as “current”, or products aren’t approved/imported.",
+    "plans": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "plan": "Plan",
+      "monthlyHint": "Unlimited journeys, full meditations, more messages",
+      "yearlyHint": "Unlimited journeys, all meditations, more messages"
+    },
+    "savePercent": "Save {{percent}}%",
+    "pleaseWait": "Please wait…",
+    "continueWithApple": "Continue with Apple",
+    "continue": "Continue",
+    "restore": "Restore purchases",
+    "continueFree": "Continue free",
+    "compliance": {
+      "lead": "{{title}} is an auto-renewing subscription.",
+      "termPrice": "{{term}} · {{price}}",
+      "termFallback": "{{term}}. Price is shown before you confirm in Apple’s payment sheet and in subscription settings."
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use (EULA)"
+    },
+    "disclaimer": "Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period.",
+    "cancelNote": "If you cancel, you keep Premium access until the end of your current billing period.",
+    "sandboxNote": "TestFlight uses Apple’s sandbox, so subscription periods can appear shorter than real monthly/yearly plans.",
+    "activeUntil": "Active until {{date}}",
+    "renewsOn": "Renews on {{date}}",
+    "alerts": {
+      "confirmAccountTitle": "Confirm your account",
+      "confirmAccountBody": "You’re about to buy Premium for {{account}}.\n\nPremium will be linked to this SeedMind account and won’t transfer to other accounts.",
+      "confirmAccountContinue": "Continue",
+      "confirmAccountUnknown": "your current account",
+      "linkedDifferentAccountTitle": "Subscription is linked to another account",
+      "linkedDifferentAccountBody": "This Apple ID already has a SeedMind subscription, but it’s linked to a different SeedMind account. Please sign into the account you purchased with.",
+      "alreadyPremiumTitle": "Premium is already active",
+      "alreadyPremiumBody": "Your subscription is already active on this device. You can manage it in your Apple subscription settings.",
+      "restoredTitle": "Restored",
+      "restoredBody": "Your Premium access is active.",
+      "noPurchasesTitle": "No purchases found",
+      "noPurchasesBody": "We couldn’t find an active subscription for this Apple ID.",
+      "restoreFailedTitle": "Restore failed",
+      "tryAgain": "Please try again.",
+      "notAvailableTitle": "Not available",
+      "notAvailableBody": "Please try again in a moment.",
+      "welcomeTitle": "Welcome to Premium",
+      "welcomeBody": "Everything is now unlocked.",
+      "purchaseCompletedTitle": "Purchase completed",
+      "purchaseCompletedBody": "Your purchase went through, but Premium isn’t active yet. It should sync in a few seconds.",
+      "purchaseCompletedBodyWithEntitlement": "Your purchase went through, but the entitlement (“{{entitlement}}”) isn’t active yet. It should sync in a few seconds.",
+      "purchaseTitle": "Purchase",
+      "purchaseCancelled": "Purchase cancelled.",
+      "purchaseFailed": "Purchase failed."
+    }
+  },
+  "categories": {
+    "money": "Abundance",
+    "loneliness": "Connection",
+    "relationship": "Love",
+    "career": "Career",
+    "health": "Health",
+    "general": "Another goal",
+    "peace": "Inner Peace",
+    "clarity": "Clarity",
+    "safety": "Safety"
+  },
+  "notifications": {
+    "channelName": "Daily Reminders",
+    "ritual": {
+      "title1": "🌱 Time to Tend Your Garden",
+      "body1": "Log your seeds and water them with meditation.",
+      "title2": "☕ Your Seeds Are Waiting",
+      "body2": "Take a moment to capture today's kindness and meditate.",
+      "title3": "🌿 Reflection Time",
+      "body3": "What seeds did you plant today? Log them & find peace.",
+      "title4": "✨ Complete Your Day",
+      "body4": "A quick meditation can transform your planted seeds."
+    },
+    "streak": {
+      "titleNextDay": "🔥 Day {{day}}!",
+      "titleStart": "🔥 Start Your Streak!",
+      "bodyKeepAlive": "Keep your {{count}}-day streak alive tonight!",
+      "bodyBegin": "Begin your meditation journey tonight.",
+      "titleIncredible": "🏆 Incredible Streak!",
+      "titleMomentum": "💪 Building Momentum",
+      "bodyIncredible": "{{count}} days strong! Don't stop now.",
+      "bodyMomentum": "Every meditation makes your garden grow."
+    },
+    "streakAtRisk": {
+      "title1": "🔥 Don't Break Your {{count}}-Day Streak!",
+      "body1": "Complete a meditation to keep it going.",
+      "title2": "⚡ {{count}} Days Strong!",
+      "body2": "One meditation away from day {{nextDay}}. Don't stop now!"
+    },
+    "seedsPending": {
+      "title1": "🌱 Your New Seeds Are Ready!",
+      "body1_one": "You planted {{count}} seed today. Water it with meditation.",
+      "body1_other": "You planted {{count}} seeds today. Water them with meditation.",
+      "title2": "☕ Time to Water Your Seeds",
+      "body2_one": "The seed you planted today is waiting for meditation.",
+      "body2_other": "The {{count}} seeds you planted today are waiting for meditation."
+    },
+    "gentle": {
+      "title1": "💭 What Kindness Did You Share?",
+      "body1": "Capture it before bed. Even small seeds grow.",
+      "title2": "🌸 A Moment of Gratitude",
+      "body2": "Reflect on your day's seeds and let them bloom."
+    },
+    "growth": {
+      "title1": "🌿 Your Garden is Growing",
+      "body1": "Water your seeds with tonight's meditation.",
+      "title2": "🪴 Seeds Need Watering",
+      "body2": "A few minutes of meditation helps them flourish."
+    },
+    "pastSeeds": {
+      "title1": "✨ Remember Any Kindness?",
+      "body1": "Even past seeds bloom with meditation. Reflect tonight."
+    },
+    "bloom": {
+      "fallbackTitle": "Your seed",
+      "single": "By the way, your “{{title}}” seed is blooming! 🌸",
+      "multi_one": "By the way, {{count}} seed is blooming in your garden! 🌸",
+      "multi_other": "By the way, {{count}} seeds are blooming in your garden! 🌸"
+    },
+    "milestones": {
+      "firstSeedlingTitle": "🌱 Your First Seed Just Sprouted!",
+      "firstSeedlingBody": "The journey begins... Open your garden to see it grow."
+    }
+  },
+  "emotions": {
+    "grateful": "Grateful",
+    "moved": "Moved",
+    "amazed": "Amazed",
+    "blessed": "Blessed",
+    "transformed": "Transformed",
+    "relieved": "Relieved",
+    "joyful": "Joyful"
+  },
+  "tabs": {
+    "chat": "Chat",
+    "garden": "Garden",
+    "meditations": "Meditations",
+    "settings": "Settings"
+  },
+  "welcome": {
+    "subtitle": "Plant Seeds of Change",
+    "tagline": "Discover how your actions today\nshape your reality tomorrow",
+    "features": {
+      "causeEffect": "Understand Cause & Effect",
+      "meditations": "Daily Coffee Meditations",
+      "mirrorReality": "See Your Mirror Reality"
+    },
+    "beginJourney": "Begin Your Journey",
+    "disclaimer": "Transform your life, one seed at a time"
+  }
+  ,
+  "start": {
+    "headline": "Plant Seeds of Change",
+    "subheadline": "See how your actions today shape your reality tomorrow.",
+    "getStarted": "Get Started",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign In"
+  },
+  "auth": {
+    "signUp": {
+      "title": "Create your account",
+      "subtitle": "Save your history and keep your garden growing across devices.",
+      "continue": "Continue"
+    },
+    "signIn": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to restore your SeedMind history.",
+      "continue": "Continue"
+    },
+    "providers": {
+      "apple": "Continue with Apple",
+      "google": "Continue with Google",
+      "googleNotReady": "Google sign-in (needs config)"
+    },
+    "or": "or",
+    "fields": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "passwordToggle": "Show or hide password",
+    "actions": {
+      "signUp": "Create account",
+      "signIn": "Sign in"
+    },
+    "forgotPassword": {
+      "link": "Forgot password?",
+      "sentTitle": "Check your email",
+      "sentBody": "If this email uses a SeedMind password, we sent a reset link."
+    },
+    "passwordSetup": {
+      "title": "Create a SeedMind password (optional)",
+      "body": "This lets you sign in with email + password later, in addition to Google/Apple.",
+      "fields": {
+        "newPassword": "New SeedMind password",
+        "confirmPassword": "Confirm password"
+      },
+      "actions": {
+        "create": "Create password",
+        "skip": "Skip for now"
+      },
+      "errors": {
+        "passwordTooShort": "Password must be at least 6 characters.",
+        "passwordsDontMatch": "Passwords don’t match."
+      },
+      "successTitle": "Password created",
+      "successBody": "You can now sign in with email + password too."
+    },
+    "switch": {
+      "haveAccount": "Already have an account?",
+      "noAccount": "New here?",
+      "signIn": "Sign in",
+      "createAccount": "Create account"
+    },
+    "configMissing": {
+      "title": "Firebase is not configured yet",
+      "body": "Add your Firebase web app config values to app.config.js → expo.extra.firebase, then restart the dev server."
+    },
+    "errors": {
+      "enterEmailFirst": "Enter your email first.",
+      "emailAlreadyInUse": "You already have an account with this email. Please sign in instead.",
+      "invalidCredential": "Incorrect email or password. Please try again.",
+      "invalidEmail": "Please enter a valid email address.",
+      "weakPassword": "Password is too weak. Please use at least 6 characters.",
+      "tooManyRequests": "Too many attempts. Please try again later.",
+      "accountExistsDifferentProvider": "An account already exists with this email using a different sign-in method. Try Google or Apple.",
+      "noPasswordForEmail": "This account uses Google/Apple sign-in. Please use the Google/Apple button.",
+      "generic": "Something went wrong. Please try again.",
+      "appleNoIdentityToken": "Apple sign-in didn’t return an identity token. Please try again.",
+      "googleNoIdToken": "Google sign-in didn’t return an ID token. Please try again."
+    },
+    "comingSoon": {
+      "title": "Sign up is coming next",
+      "body": "This is a placeholder screen. When you add Firebase Auth, we’ll put Apple / Google / Email sign-in here.",
+      "disclaimer": "For now, tap Continue to enter the app."
+    }
+  }
+}
+
