@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Syne } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 import { Footer } from './ui/Footer';
 import { Nav } from './ui/Nav';
 
-const display = Syne({
+const display = Cormorant_Garamond({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['600', '700', '800'],
+  weight: ['500', '600', '700'],
 });
 
-const sans = Plus_Jakarta_Sans({
+const sans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   weight: ['400', '500', '600', '700'],
@@ -41,4 +41,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-

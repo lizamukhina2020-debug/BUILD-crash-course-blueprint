@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const APP_STORE_URL = 'https://apps.apple.com/app/id6759827726';
+import { APP_STORE_URL } from './store';
 
 export default function HomePage() {
   return (
@@ -25,14 +25,23 @@ export default function HomePage() {
                 <li>You want something in your life to change — but you’re not sure what to do first.</li>
                 <li>You want help that feels gentle — not like you’re being scolded.</li>
               </ul>
-              <p className="sub">
-                <strong>SeedMind</strong> is built for a <strong>real loop</strong>: you bring a goal or a stuck problem,
-                the <strong>Seeds Guide</strong> maps <strong>cause → effect</strong> in plain language, you take{' '}
-                <strong>actions in the real world</strong>, <strong>record them in your garden</strong>,{' '}
-                <strong>water</strong> them with short <strong>meditations</strong> (feel the good you gave — that’s
-                what speeds things up), and when life moves, you <strong>harvest</strong> — you log the shift so you
-                remember the change was real. Same flow as the app.
+              <p className="loop-lead">
+                <strong>SeedMind</strong> is built for the same loop you use in the app — in four beats:
               </p>
+              <ul className="loop-micro">
+                <li>
+                  <strong>Clarity.</strong> The Seeds Guide helps you see cause and effect in plain words.
+                </li>
+                <li>
+                  <strong>Action + garden.</strong> You do something real and log it — so it’s not only in your head.
+                </li>
+                <li>
+                  <strong>Water.</strong> Short meditations help what you planted ripen faster.
+                </li>
+                <li>
+                  <strong>Harvest.</strong> When your reality shifts, you record it — that’s your proof and your fruit.
+                </li>
+              </ul>
               <div className="cta-row">
                 <a
                   className="btn btn-primary"
@@ -208,39 +217,29 @@ export default function HomePage() {
       <section className="section-cycle" aria-labelledby="cycle-heading">
         <div className="cycle-grid">
           <div className="cycle-copy">
-            <p className="section-kicker">Why it’s more than “feeling better for a minute”</p>
+            <p className="section-kicker">The finish line</p>
             <h2 id="cycle-heading" className="section-title">
-              A playful path from goal → action → shift you can name
+              Harvest — when life moves, log the win
             </h2>
-            <p className="cycle-lead">
-              You’re not only here for a pep talk. You’re trying a <strong>different way to move your life</strong> — with
-              a map, a garden, and a finish line you can celebrate.
-            </p>
-            <ul className="cycle-list">
-              <li>
-                <strong>Start with what you want.</strong> Money, love, belonging, calm — the Guide helps you see{' '}
-                <strong>cause and effect</strong> in everyday words: what you give others and what tends to come back.
-              </li>
-              <li>
-                <strong>Do it in the real world.</strong> Pick a seed, act on it, then <strong>log it in your garden</strong>{' '}
-                so progress is visible — not lost by next week.
-              </li>
-              <li>
-                <strong>Water with meditation.</strong> Picture what you did, feel how it landed for them — that repetition
-                is how SeedMind <strong>speeds up</strong> the same seed you already planted.
-              </li>
-              <li>
-                <strong>Watch reality catch up.</strong> When something actually moves — a door opens, a pattern breaks, a
-                relationship softens — that’s not “luck only.” That’s what you’re practicing for.
-              </li>
-              <li>
-                <strong>Harvest.</strong> Record the transformation in the app so you remember: <strong>this changed</strong>
-                . That’s the fun part — proof the loop is real.
-              </li>
-            </ul>
+            <div className="harvest-prose">
+              <p>
+                The whole point isn’t only to feel clearer for an hour. It’s to <strong>shift what shows up</strong> — and
+                to know <strong>you had something to do with it</strong>.
+              </p>
+              <p>
+                When something in your world finally moves — a conversation opens, a pattern breaks, an opportunity
+                appears — <strong>harvest</strong> is where you <strong>record that transformation</strong>. It’s your
+                proof: the fruit of seeds you planted and watered. You’re not guessing whether the loop works — you’re
+                looking at a moment you can name.
+              </p>
+              <p className="harvest-spark">
+                That’s the exciting part: <strong>trying goals in a new way</strong> — kind, concrete, and a little like
+                tending something alive.
+              </p>
+            </div>
           </div>
           <div className="cycle-visual">
-            <p className="hero-visual-label">Harvest — when life moves, log the win</p>
+            <p className="hero-visual-label">Harvest in the app</p>
             <div className="phone-frame phone-frame--tilt-rev">
               <div className="phone-frame-inner">
                 <Image
