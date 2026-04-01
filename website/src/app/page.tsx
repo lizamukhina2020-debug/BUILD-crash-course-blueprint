@@ -20,28 +20,11 @@ export default function HomePage() {
                 <span>For when your head won’t quiet down</span>
               </div>
               <h1 className="h1">Turn the spiral into one step.</h1>
-              <ul className="situation-list" aria-label="You might relate if">
-                <li>Your mind goes over the same worries again and again.</li>
-                <li>You want something in your life to change — but you’re not sure what to do first.</li>
-                <li>You want help that feels gentle — not like you’re being scolded.</li>
-              </ul>
-              <p className="loop-lead">
-                <strong>SeedMind</strong> is built for the same loop you use in the app — in four beats:
+              <p className="hero-line">
+                When your mind won’t quit, <strong>SeedMind</strong> gives you the same rhythm as the app:{' '}
+                <strong>clarity</strong> → <strong>one real seed</strong> → <strong>your garden</strong> →{' '}
+                <strong>water</strong> → <strong>harvest</strong> when life actually moves — kind, concrete, pocket-sized.
               </p>
-              <ul className="loop-micro">
-                <li>
-                  <strong>Clarity.</strong> The Seeds Guide helps you see cause and effect in plain words.
-                </li>
-                <li>
-                  <strong>Action + garden.</strong> You do something real and log it — so it’s not only in your head.
-                </li>
-                <li>
-                  <strong>Water.</strong> Short meditations help what you planted ripen faster.
-                </li>
-                <li>
-                  <strong>Harvest.</strong> When your reality shifts, you record it — that’s your proof and your fruit.
-                </li>
-              </ul>
               <div className="cta-row">
                 <a
                   className="btn btn-primary"
@@ -184,10 +167,18 @@ export default function HomePage() {
       </section>
 
       <section className="section-features">
-        <p className="section-kicker">The pieces</p>
-        <h2 className="section-title">Three parts — one loop you can feel</h2>
+        <p className="section-kicker section-kicker--spark">The pieces</p>
+        <h2 className="section-title">
+          <span className="title-emoji" aria-hidden>
+            ✨
+          </span>{' '}
+          Three parts — one loop you can feel
+        </h2>
         <div className="grid3">
-          <article className="mini">
+          <article className="mini mini--guide">
+            <span className="mini-emoji" aria-hidden>
+              💬
+            </span>
             <div className="mini-num">01</div>
             <h3 className="mini-title">Seeds Guide</h3>
             <p className="mini-body">
@@ -195,7 +186,10 @@ export default function HomePage() {
               <strong>seed</strong> options — not a giant lecture.
             </p>
           </article>
-          <article className="mini">
+          <article className="mini mini--garden">
+            <span className="mini-emoji" aria-hidden>
+              🌿
+            </span>
             <div className="mini-num">02</div>
             <h3 className="mini-title">Your garden</h3>
             <p className="mini-body">
@@ -203,7 +197,10 @@ export default function HomePage() {
               can see, not only in your head.
             </p>
           </article>
-          <article className="mini">
+          <article className="mini mini--water">
+            <span className="mini-emoji" aria-hidden>
+              ☕
+            </span>
             <div className="mini-num">03</div>
             <h3 className="mini-title">Meditations</h3>
             <p className="mini-body">
