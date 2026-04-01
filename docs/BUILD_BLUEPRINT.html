@@ -626,7 +626,44 @@
     }
     .cta-open { position: relative; }
     .cta-open .section-visual { margin-top: 1.1rem; }
+    .pdf-cta-wrap {
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .pdf-btn {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0a0e14;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      border-radius: 999px;
+      padding: 0.72rem 1.35rem;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(94,225,255,0.22);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .pdf-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 36px rgba(94,225,255,0.28);
+    }
+    .pdf-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .pdf-hint {
+      margin: 0.6rem auto 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      max-width: 26rem;
+      line-height: 1.5;
+    }
     @media print {
+      .no-print { display: none !important; }
       .bg-mesh, .grid { display: none; }
       body { background: #fff; color: #111; }
       section, header.hero, .cta-box, .cta-open { break-inside: avoid; box-shadow: none; }
@@ -794,8 +831,8 @@
       <div class="cursor-block">
         <img src="blueprint-media/cursor-brand.png" alt="Cursor logo" width="220" height="92" />
         <div>
-          <p style="margin-top:0;"><strong>You don’t need to already know how to code.</strong></p>
-          <p><span class="mono">Cursor</span> is where you chat <strong>next to your project</strong>. Plain sentences — “I want a sign-in screen” — then you build step by step. Ask it to explain like you’re new. Ask what to click.</p>
+          <p style="margin-top:0;"><strong>You don’t need to know how to code.</strong></p>
+          <p><span class="mono">Cursor</span> is <strong>two things at once</strong>: a <strong>guide</strong> for your app (what to build, in what order, what to watch for) and the <strong>builder</strong> that turns plain language into real code. You say what you want — “add a sign-in screen,” “fix this crash” — it writes and edits the files. You steer; it types. Ask it to explain like you’re new. Ask what to click.</p>
         </div>
       </div>
       <p>When I say “talk to Cursor,” that’s <strong>literally</strong> how <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> moved from messy idea to something in the App Store: <strong>questions, diffs, fixes, repeat</strong>.</p>
@@ -803,6 +840,7 @@
         <h3><span aria-hidden="true">★</span> Top tips (read this twice)</h3>
         <ol>
           <li><strong>Keep build conversations in Cursor.</strong> Don’t run the same project in parallel with ChatGPT “coding coach” threads — split context wasted my time and credits and slowed me down hard. One lane for the codebase.</li>
+          <li><strong>Paste screenshots.</strong> Error messages, confusing UI, something from another website, a concept you don’t get — snap it and drop it into <strong>Ask</strong> or <strong>Agent</strong>. A picture beats a long vague description.</li>
           <li><strong>Use Composer 2</strong> for your default <strong>Agent / Ask</strong> flow when you can — for me it’s been <strong>roughly an order of magnitude cheaper</strong> than alternatives I tried, and still very effective (Cursor changes pricing; always check their current page).</li>
           <li><strong>Ask mode</strong> = questions, explanations, planning. <strong>Agent mode</strong> = bigger multi-file edits — always <strong>review the diff</strong> like a human tech lead.</li>
           <li><strong>Credits &amp; plans:</strong> you get usage on your plan; if you run out, you <strong>upgrade</strong> or turn on <strong>on-demand</strong> usage and set a <strong>limit / cap</strong> you’re comfortable with — then raise it if needed. (Exact options live in Cursor’s billing settings.)</li>
@@ -883,6 +921,10 @@
       <strong style="color:#cbd5e1;">Elizabeth Mukhina</strong> — Founder of <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a><br />
       Educational notes from personal experience — not legal or financial advice. Building involves platform rules, privacy, and your own judgment.<br />
       <span style="color:var(--seed);">Start before you’re ready. That’s how the future gets written.</span>
+      <div class="pdf-cta-wrap no-print">
+        <button type="button" class="pdf-btn" onclick="window.print()">Save as PDF</button>
+        <p class="pdf-hint">Opens your browser’s print window — choose <strong>Save as PDF</strong> (or Print). Same idea as “print to PDF” in the intro.</p>
+      </div>
     </footer>
   </div>
 </body>
