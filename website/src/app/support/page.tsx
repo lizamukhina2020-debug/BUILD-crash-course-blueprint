@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function SupportPage() {
   return (
     <>
-      <h1 className="pageTitle">Support</h1>
+      <h1 className="page-title">Support</h1>
       <section className="card legal">
         <p>
           Need help with SeedMind? We’re here.

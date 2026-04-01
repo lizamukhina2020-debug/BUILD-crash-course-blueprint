@@ -3,7 +3,7 @@ export default function TermsPage() {
 
   return (
     <>
-      <h1 className="pageTitle">Terms of Service</h1>
+      <h1 className="page-title">Terms of Service</h1>
       <section className="card legal">
         <p>
           <strong>Last updated:</strong> {lastUpdated}

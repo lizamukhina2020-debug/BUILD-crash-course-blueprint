@@ -3,7 +3,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <h1 className="pageTitle">Privacy Policy</h1>
+      <h1 className="page-title">Privacy Policy</h1>
       <section className="card legal">
         <p>
           <strong>Last updated:</strong> {lastUpdated}
