@@ -617,6 +617,44 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
     .stack-logos .firebase { background: #fff; padding: 0.35rem 0.55rem; }
+    @media (max-width: 640px) {
+      .stack-logos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem 0.45rem;
+        justify-content: stretch;
+        padding: 0.75rem 0.55rem;
+      }
+      .stack-logos a,
+      .stack-logos span.logo-wrap {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.45rem 0.35rem;
+        overflow: hidden;
+      }
+      .stack-logos img {
+        display: block;
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 40px;
+        object-fit: contain;
+      }
+      .stack-logos .logo-wrap.expo-eas img,
+      .stack-logos .logo-wrap.testflight img {
+        max-width: 100%;
+        max-height: 44px;
+      }
+      .stack-logos .logo-wrap.app-store img {
+        max-width: 44px;
+        max-height: 44px;
+        height: 44px;
+      }
+    }
     .pmf-note {
       margin-top: 1rem;
       padding: 0.95rem 1.05rem;
