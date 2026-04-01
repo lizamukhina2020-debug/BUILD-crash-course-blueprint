@@ -593,6 +593,71 @@
     }
     .tips-box li { margin-bottom: 0.65rem; }
     .tips-box li:last-child { margin-bottom: 0; }
+    .revolution-callout {
+      margin: 0 0 2.25rem;
+      padding: 1.35rem 1.35rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(94, 225, 255, 0.32);
+      background: linear-gradient(155deg, rgba(94, 225, 255, 0.1), rgba(167, 139, 250, 0.08));
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    }
+    .revolution-callout .revolution-visual {
+      margin: 0 0 1.05rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #0a1018;
+    }
+    .revolution-callout .revolution-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .revolution-callout p {
+      margin: 0 0 0.85rem;
+      color: #e2e8f0;
+      font-size: 1.02rem;
+      line-height: 1.62;
+    }
+    .revolution-callout p:last-child { margin-bottom: 0; }
+    .revolution-callout strong { color: #fff; }
+    .addon-ai-box {
+      margin-top: 1.35rem;
+      padding: 1.15rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(96, 165, 250, 0.45);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.14), rgba(94, 225, 255, 0.07));
+    }
+    .addon-ai-box h3 {
+      margin: 0 0 0.55rem;
+      font-size: 0.98rem;
+      color: #93c5fd;
+      letter-spacing: -0.02em;
+    }
+    .addon-ai-box p { margin: 0 0 0.75rem; color: #c8d4ea; font-size: 0.94rem; line-height: 1.58; }
+    .addon-ai-box p:last-child { margin-bottom: 0; }
+    .addon-ai-box .muted { font-size: 0.84rem !important; color: var(--muted) !important; }
+    .addon-ai-box a { color: var(--accent); }
+    .addon-ai-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem 1.1rem;
+    }
+    .addon-ai-head .addon-ai-logo {
+      flex-shrink: 0;
+      width: min(140px, 38vw);
+      padding: 0.4rem 0.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .addon-ai-head .addon-ai-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .addon-ai-body { flex: 1; min-width: min(100%, 220px); }
     .stack-logos {
       display: flex;
       flex-wrap: wrap;
@@ -793,6 +858,35 @@
         border-color: #ddd6fe !important;
         color: #1e1b4b !important;
       }
+      .revolution-callout {
+        background: #f0f9ff !important;
+        border-color: #7dd3fc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .revolution-callout p,
+      .revolution-callout strong {
+        color: #0f172a !important;
+      }
+      .revolution-callout .revolution-visual {
+        background: #fff !important;
+        border-color: #cbd5e1 !important;
+      }
+      .addon-ai-box {
+        background: #eff6ff !important;
+        border-color: #93c5fd !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .addon-ai-box h3 { color: #1e40af !important; }
+      .addon-ai-box p { color: #1e293b !important; }
+      .addon-ai-box .muted { color: #475569 !important; }
+      .addon-ai-box a { color: #0369a1 !important; }
+      .addon-ai-head .addon-ai-logo {
+        background: #fff !important;
+        border-color: #cbd5e1 !important;
+      }
       table, th, td { color: #1e293b !important; border-color: #cbd5e1 !important; }
       th { color: #475569 !important; }
       .cta-box, .cta-open {
@@ -895,6 +989,19 @@
       <p class="aside">Nobody cool has it all figured out. Builders just poke the future until it moves.</p>
     </header>
 
+    <div class="revolution-callout">
+      <div class="revolution-visual">
+        <img
+          src="blueprint-media/ai-revolution-empowerment.png"
+          alt="Hand presenting a glowing sphere with AI — human-scale access to powerful tools"
+          width="1200"
+          height="675"
+        />
+      </div>
+      <p><strong>This moment is bigger than the dot-com era.</strong> AI isn’t a sidebar trend — it’s a new layer on how software gets built and who gets to build it. The people who start <em>now</em> — messy, curious, in public — will shape products, habits, and culture for years.</p>
+      <p>You don’t need a CS degree or a “technical cofounder” badge. <strong>Ordinary people can ship real things</strong> with tools + AI + persistence. The window is open; the ones who grab it get to <strong>change what exists in the world</strong>, not only consume it.</p>
+    </div>
+
     <section>
       <h2><span class="num">00</span> Start here</h2>
       <p>If you messaged <span class="mono">BUILD</span>, you’re holding the same kind of rough map I wish someone had handed me — not a flex, not a course upsell.</p>
@@ -961,7 +1068,7 @@
           <img src="blueprint-media/zero-to-one.jpg" alt="Zero to One book cover" />
           <div class="cap">
             <h3>Zero to One</h3>
-            <p>A lightning strike of a book: why the future belongs to people who invent instead of copy. Sharp, contrarian, and the kind of read that makes your brain race — startup lore with real intellectual edge.</p>
+            <p>The <strong>PayPal co-founder’s</strong> punchy case for <strong>inventing the future</strong> instead of cloning what already works. Short, opinionated, brain-rewiring — perfect if you want startup thinking without fluff.</p>
             <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener">goodreads.com — Zero to One</a>
           </div>
         </article>
@@ -969,7 +1076,7 @@
           <img src="blueprint-media/social-network.jpg" alt="The Social Network poster" />
           <div class="cap">
             <h3>The Social Network</h3>
-            <p>Dorm room to world stage — pace, ego, and code flying across the screen. It’s Hollywood, not a textbook, but the <em>builder energy</em> is contagious. Watch for momentum, not courtroom accuracy.</p>
+            <p><strong>Mark Zuckerberg, Facebook’s birth, and dorm-room code</strong> turned into rocket-ship drama. It’s Hollywood, not a court transcript — watch for <strong>obsession and pace</strong>, not legal precision.</p>
             <a href="https://www.imdb.com/title/tt1285016/" target="_blank" rel="noopener">IMDb — The Social Network</a>
           </div>
         </article>
@@ -977,7 +1084,7 @@
           <img src="blueprint-media/magnates-media.png" alt="MagnatesMedia YouTube channel" />
           <div class="cap">
             <h3>MagnatesMedia</h3>
-            <p>Business stories shot like cinema: money, power, meltdowns, and “how did they pull that off?” twists. Big production, bigger hooks — dangerously easy to watch just one more.</p>
+            <p><strong>Money, power, and meltdowns</strong> edited like mini-movies. If you like “how did they even do that?” rabbit holes, this channel is catnip.</p>
             <a href="https://www.youtube.com/@MagnatesMedia" target="_blank" rel="noopener">youtube.com/@MagnatesMedia</a>
           </div>
         </article>
@@ -985,7 +1092,7 @@
           <img src="blueprint-media/starter-story.png" alt="Starter Story YouTube channel" />
           <div class="cap">
             <h3>Starter Story</h3>
-            <p>Real founders, real numbers, real screwups — tactics you can steal and proof that normal humans ship. If you need “someone like me actually did this” fuel, this is jet fuel.</p>
+            <p>Founders spell out <strong>real revenue</strong> and mistakes you can steal from. Best fuel when you need proof that <strong>regular people ship</strong>, not just celebrities.</p>
             <a href="https://www.youtube.com/@starterstory" target="_blank" rel="noopener">youtube.com/@starterstory</a>
           </div>
         </article>
@@ -1051,6 +1158,19 @@
           <tr><th>OTA vs build</th><td>Sometimes a <strong>quick update</strong>; sometimes a <strong>new store build</strong>. Cursor explains when.</td></tr>
         </tbody>
       </table>
+      <div class="addon-ai-box">
+        <div class="addon-ai-head">
+          <div class="addon-ai-logo">
+            <img src="blueprint-media/deepseek-logo.png" alt="DeepSeek logo" width="200" height="60" />
+          </div>
+          <div class="addon-ai-body">
+            <h3>Extra (not in the table): AI inside your app</h3>
+            <p>If you want a <strong>chat or agent</strong> in your product — like I did with <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> — every user message usually hits an <strong>API</strong>. That means <strong>tokens</strong> and <strong>real money</strong> for you as the builder. More usage = more bill — so your model choice matters.</p>
+            <p>After trying a lot of options, I recommend <strong>DeepSeek</strong> for most indie apps: <strong>quality that holds up</strong> next to big names, often at <strong>a fraction of the per-message cost</strong> versus routing everything through premium ChatGPT-class or flagship Gemini APIs. Same user experience idea — <strong>smarter spend</strong> on the backend.</p>
+            <p class="muted">API pricing changes constantly. Before you wire anything in, compare the official pages yourself — e.g. <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer">DeepSeek pricing</a>, <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Google Gemini</a> — and model your cost per active user.</p>
+          </div>
+        </div>
+      </div>
       <div class="stack-logos" aria-label="Example stack logos">
         <span class="logo-wrap firebase"><img src="blueprint-media/firebase-logomark.png" alt="Firebase" /></span>
         <span class="logo-wrap"><img src="blueprint-media/revenuecat-logo.png" alt="RevenueCat" /></span>
