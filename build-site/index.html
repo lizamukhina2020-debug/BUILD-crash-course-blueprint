@@ -593,8 +593,18 @@
     }
     .tips-box li { margin-bottom: 0.65rem; }
     .tips-box li:last-child { margin-bottom: 0; }
+    .revolution-title {
+      margin: 0 0 1.05rem;
+      font-size: clamp(1.28rem, 4.2vw, 1.72rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.22;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 40px rgba(94, 225, 255, 0.2);
+    }
     .revolution-callout {
-      margin: 0 0 2.25rem;
+      margin: 2.75rem 0 2.25rem;
       padding: 1.35rem 1.35rem 1.25rem;
       border-radius: var(--radius);
       border: 1px solid rgba(94, 225, 255, 0.32);
@@ -622,7 +632,7 @@
     .revolution-callout p:last-child { margin-bottom: 0; }
     .revolution-callout strong { color: #fff; }
     .addon-ai-box {
-      margin-top: 1.35rem;
+      margin-top: 2rem;
       padding: 1.15rem 1.2rem;
       border-radius: 14px;
       border: 1px solid rgba(96, 165, 250, 0.45);
@@ -638,6 +648,19 @@
     .addon-ai-box p:last-child { margin-bottom: 0; }
     .addon-ai-box .muted { font-size: 0.84rem !important; color: var(--muted) !important; }
     .addon-ai-box a { color: var(--accent); }
+    .addon-ai-box a.seed-link,
+    .addon-ai-box a.seed-inline.seed-link {
+      color: var(--seed) !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .addon-ai-box a.seed-link:hover {
+      color: #b4f8cc !important;
+      text-decoration: underline;
+      text-decoration-color: rgba(134, 239, 172, 0.65);
+      text-underline-offset: 0.18em;
+    }
     .addon-ai-head {
       display: flex;
       flex-wrap: wrap;
@@ -865,6 +888,10 @@
         break-inside: avoid;
         page-break-inside: avoid;
       }
+      .revolution-title {
+        color: #0f172a !important;
+        text-shadow: none !important;
+      }
       .revolution-callout p,
       .revolution-callout strong {
         color: #0f172a !important;
@@ -883,6 +910,10 @@
       .addon-ai-box p { color: #1e293b !important; }
       .addon-ai-box .muted { color: #475569 !important; }
       .addon-ai-box a { color: #0369a1 !important; }
+      .addon-ai-box a.seed-link,
+      .addon-ai-box a.seed-inline.seed-link {
+        color: #047857 !important;
+      }
       .addon-ai-head .addon-ai-logo {
         background: #fff !important;
         border-color: #cbd5e1 !important;
@@ -986,10 +1017,10 @@
         The people who win are the ones who stay curious, ask “dumb” questions proudly, and ship small versions anyway.
         <span style="color:var(--warm);">That can be you.</span>
       </p>
-      <p class="aside">Nobody cool has it all figured out. Builders just poke the future until it moves.</p>
     </header>
 
     <div class="revolution-callout">
+      <h2 class="revolution-title">The wave is bigger than the dot-com boom — and it’s still early</h2>
       <div class="revolution-visual">
         <img
           src="blueprint-media/ai-revolution-empowerment.png"
@@ -1158,19 +1189,6 @@
           <tr><th>OTA vs build</th><td>Sometimes a <strong>quick update</strong>; sometimes a <strong>new store build</strong>. Cursor explains when.</td></tr>
         </tbody>
       </table>
-      <div class="addon-ai-box">
-        <div class="addon-ai-head">
-          <div class="addon-ai-logo">
-            <img src="blueprint-media/deepseek-logo.png" alt="DeepSeek logo" width="200" height="60" />
-          </div>
-          <div class="addon-ai-body">
-            <h3>Extra (not in the table): AI inside your app</h3>
-            <p>If you want a <strong>chat or agent</strong> in your product — like I did with <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> — every user message usually hits an <strong>API</strong>. That means <strong>tokens</strong> and <strong>real money</strong> for you as the builder. More usage = more bill — so your model choice matters.</p>
-            <p>After trying a lot of options, I recommend <strong>DeepSeek</strong> for most indie apps: <strong>quality that holds up</strong> next to big names, often at <strong>a fraction of the per-message cost</strong> versus routing everything through premium ChatGPT-class or flagship Gemini APIs. Same user experience idea — <strong>smarter spend</strong> on the backend.</p>
-            <p class="muted">API pricing changes constantly. Before you wire anything in, compare the official pages yourself — e.g. <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer">DeepSeek pricing</a>, <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Google Gemini</a> — and model your cost per active user.</p>
-          </div>
-        </div>
-      </div>
       <div class="stack-logos" aria-label="Example stack logos">
         <span class="logo-wrap firebase"><img src="blueprint-media/firebase-logomark.png" alt="Firebase" /></span>
         <span class="logo-wrap"><img src="blueprint-media/revenuecat-logo.png" alt="RevenueCat" /></span>
@@ -1178,6 +1196,19 @@
         <span class="logo-wrap"><img src="blueprint-media/vercel-logo.png" alt="Vercel" /></span>
         <span class="logo-wrap app-store"><img src="blueprint-media/app-store-icon.png" alt="Apple App Store" /></span>
         <span class="logo-wrap testflight"><img src="blueprint-media/testflight-icon.png" alt="Apple TestFlight" /></span>
+      </div>
+      <div class="addon-ai-box">
+        <div class="addon-ai-head">
+          <div class="addon-ai-logo">
+            <img src="blueprint-media/deepseek-logo.png" alt="DeepSeek logo" width="200" height="60" />
+          </div>
+          <div class="addon-ai-body">
+            <h3>Put AI in your app — the smart-money way</h3>
+            <p>If you want a <strong>chat or agent</strong> in your product — like I did with <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> — every user message usually hits an <strong>API</strong>. That means <strong>tokens</strong> and <strong>real money</strong> for you as the builder. More usage = more bill — so your model choice matters.</p>
+            <p>After trying a lot of options, I recommend <strong>DeepSeek</strong> for most indie apps: <strong>quality that holds up</strong> next to big names, often at <strong>a fraction of the per-message cost</strong> versus routing everything through premium ChatGPT-class or flagship Gemini APIs. Same user experience idea — <strong>smarter spend</strong> on the backend.</p>
+            <p class="muted">API pricing changes constantly. Before you wire anything in, compare the official pages yourself — e.g. <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer">DeepSeek pricing</a>, <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Google Gemini</a> — and model your cost per active user.</p>
+          </div>
+        </div>
       </div>
     </section>
 
