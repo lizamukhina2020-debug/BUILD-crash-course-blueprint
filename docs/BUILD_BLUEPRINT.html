@@ -594,15 +594,46 @@
     .tips-box li { margin-bottom: 0.65rem; }
     .tips-box li:last-child { margin-bottom: 0; }
     .revolution-title {
-      margin: 0 0 1.05rem;
-      font-size: clamp(1.28rem, 4.2vw, 1.72rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.22;
+      margin: 0 0 1rem;
       text-align: center;
-      color: #fff;
-      text-shadow: 0 0 40px rgba(94, 225, 255, 0.2);
+      line-height: 1.18;
     }
+    .revolution-title-line {
+      display: block;
+      font-size: clamp(1.38rem, 4.8vw, 1.95rem);
+      font-weight: 700;
+      letter-spacing: -0.038em;
+      line-height: 1.15;
+      background: linear-gradient(102deg, #ffffff 0%, #e0f2fe 28%, #a5b4fc 55%, #5ee1ff 88%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 4px 28px rgba(94, 225, 255, 0.22));
+    }
+    @supports not (background-clip: text) {
+      .revolution-title-line { color: #fff; background: none; filter: none; }
+    }
+    .revolution-title-sub {
+      display: block;
+      margin-top: 0.42rem;
+      font-size: clamp(0.82rem, 2.4vw, 0.95rem);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm);
+      text-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+    }
+    .revolution-dotcom-hint {
+      margin: 0 0 1.15rem;
+      padding: 0.72rem 1rem 0.72rem 1rem;
+      border-left: 3px solid rgba(94, 225, 255, 0.5);
+      font-size: 0.9rem;
+      line-height: 1.58;
+      color: #a8b9d0;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 0 12px 12px 0;
+    }
+    .revolution-dotcom-hint strong { color: #e2e8f0; font-weight: 600; }
     .revolution-callout {
       margin: 2.75rem 0 2.25rem;
       padding: 1.35rem 1.35rem 1.25rem;
@@ -888,10 +919,23 @@
         break-inside: avoid;
         page-break-inside: avoid;
       }
-      .revolution-title {
+      .revolution-title-line {
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
         color: #0f172a !important;
+        filter: none !important;
+      }
+      .revolution-title-sub {
+        color: #b45309 !important;
         text-shadow: none !important;
       }
+      .revolution-dotcom-hint {
+        background: #f8fafc !important;
+        border-left-color: #38bdf8 !important;
+        color: #334155 !important;
+      }
+      .revolution-dotcom-hint strong { color: #0f172a !important; }
       .revolution-callout p,
       .revolution-callout strong {
         color: #0f172a !important;
@@ -1012,15 +1056,16 @@
       <p class="hero-lead">
         A real map from someone who shipped <a href="https://apps.apple.com/app/id6759827726" class="seed-inline seed-link" target="_blank" rel="noopener noreferrer" title="Open SeedMind on the App Store">SeedMind</a> without being a “professional coder.” Save it, print to PDF, pass it on — whatever helps you actually start.
       </p>
-      <p class="punch">
-        We’re in a strange, good moment: <strong>tools + AI lower the floor</strong> for who can build.
-        The people who win are the ones who stay curious, ask “dumb” questions proudly, and ship small versions anyway.
-        <span style="color:var(--warm);">That can be you.</span>
-      </p>
     </header>
 
     <div class="revolution-callout">
-      <h2 class="revolution-title">The wave is bigger than the dot-com boom — and it’s still early</h2>
+      <h2 class="revolution-title">
+        <span class="revolution-title-line">The wave is bigger than the dot-com boom</span>
+        <span class="revolution-title-sub">— and it’s still early</span>
+      </h2>
+      <p class="revolution-dotcom-hint">
+        <strong>Quick context:</strong> <strong>Dot-com</strong> is the era when the consumer Internet went mainstream — the wave where <strong>Facebook</strong>, <strong>Google</strong>, <strong>Amazon</strong>, <strong>Spotify</strong>, <strong>Netflix</strong>, and countless startups turned browsers and apps into how billions live, work, and connect.
+      </p>
       <div class="revolution-visual">
         <img
           src="blueprint-media/ai-revolution-empowerment.png"
@@ -1029,7 +1074,7 @@
           height="675"
         />
       </div>
-      <p><strong>This moment is bigger than the dot-com era.</strong> AI isn’t a sidebar trend — it’s a new layer on how software gets built and who gets to build it. The people who start <em>now</em> — messy, curious, in public — will shape products, habits, and culture for years.</p>
+      <p><strong>AI is the next chapter after that internet explosion.</strong> It isn’t a sidebar trend — it’s a new layer on how software gets built and who gets to build it. The people who start <em>now</em> — messy, curious, in public — will shape products, habits, and culture for years.</p>
       <p>You don’t need a CS degree or a “technical cofounder” badge. <strong>Ordinary people can ship real things</strong> with tools + AI + persistence. The window is open; the ones who grab it get to <strong>change what exists in the world</strong>, not only consume it.</p>
     </div>
 
