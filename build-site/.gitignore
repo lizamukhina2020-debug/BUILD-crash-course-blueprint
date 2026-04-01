@@ -1,3 +1,2 @@
-# Generated from ../docs/ by npm run build (Vercel runs this on deploy)
-index.html
-blueprint-media/
+# Local Vercel link metadata only (snapshot is committed so CLI deploy works without ../docs)
+.vercel

@@ -36,12 +36,31 @@ const htmlDst = path.join(buildSiteRoot, "index.html");
 const mediaSrc = path.join(docsDir, "blueprint-media");
 const mediaDst = path.join(buildSiteRoot, "blueprint-media");
 
-if (!fs.existsSync(htmlSrc)) {
-  console.error("build-site: missing", htmlSrc, "| docsDir=", docsDir, "| cwd=", process.cwd());
-  process.exit(1);
+/** Vercel CLI folder uploads only `build-site/` — no sibling `../docs`. Use committed snapshot if present. */
+function hasUsableSnapshot() {
+  if (!fs.existsSync(htmlDst)) return false;
+  const sentinel = path.join(mediaDst, "hero-ai-banner.png");
+  return fs.existsSync(sentinel);
 }
-if (!fs.existsSync(mediaSrc)) {
-  console.error("build-site: missing", mediaSrc);
+
+const canSyncFromDocs =
+  fs.existsSync(htmlSrc) && fs.existsSync(mediaSrc);
+
+if (!canSyncFromDocs) {
+  if (hasUsableSnapshot()) {
+    console.log(
+      "build-site: ../docs not available (CLI upload?); using committed index.html + blueprint-media/"
+    );
+    process.exit(0);
+  }
+  console.error(
+    "build-site: missing",
+    htmlSrc,
+    "| docsDir=",
+    docsDir,
+    "| cwd=",
+    process.cwd()
+  );
   process.exit(1);
 }
 

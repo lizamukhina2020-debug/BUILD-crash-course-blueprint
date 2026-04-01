@@ -5,6 +5,10 @@ This is **not** the SeedMind marketing app. It is a **separate** static site for
 Source of truth for copy/layout: **`../docs/BUILD_BLUEPRINT.html`** and **`../docs/blueprint-media/`**.  
 `npm run build` copies them here so Vercel can deploy static HTML at `/`.
 
+**Git-connected deploy** (Root Directory `build-site`): Vercel clones the full repo, so `../docs` exists and the build refreshes from source every time.
+
+**`vercel` CLI from this folder** only uploads `build-site/`, so **`../docs` is missing** on the server. For that path, **`index.html` and `blueprint-media/` are committed** as a snapshot. The build script skips sync when docs are absent but that snapshot exists. After you change the blueprint in `docs/`, run `npm run build` here and commit the updated `index.html` + `blueprint-media/`.
+
 ## Deploy on Vercel (second project)
 
 1. **Add New → Project** and import the same GitHub repo again (or create a new project).
