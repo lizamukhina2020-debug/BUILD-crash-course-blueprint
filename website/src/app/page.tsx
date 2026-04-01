@@ -3,6 +3,9 @@ import Link from 'next/link';
 
 import { APP_STORE_URL } from './store';
 
+/** Fresh HTML on every request so production matches your latest deploy (not a stale CDN copy). */
+export const revalidate = 0;
+
 export default function HomePage() {
   return (
     <div className="landing">
