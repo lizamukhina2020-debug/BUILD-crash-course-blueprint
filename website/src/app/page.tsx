@@ -21,14 +21,14 @@ export default function HomePage() {
               </div>
               <h1 className="h1">Turn the spiral into one step.</h1>
               <ul className="situation-list" aria-label="You might relate if">
-                <li>The same worry loops at night — and you still don’t know what to <em>do</em>.</li>
-                <li>You know what would help — but the next step feels too big to start.</li>
-                <li>You want change with kindness, not another harsh productivity lecture.</li>
+                <li>Your mind goes over the same worries again and again.</li>
+                <li>You want something in your life to change — but you’re not sure what to do first.</li>
+                <li>You want help that feels gentle — not like you’re being scolded.</li>
               </ul>
               <p className="sub">
-                <strong>SeedMind</strong> is a calm pocket companion: talk it through, get <strong>cause → effect</strong> in
-                plain words, plant <strong>one small seed</strong> (a real action), then <strong>water it</strong> with
-                short meditations so it actually sticks — closer to how the real app feels than a wall of features.
+                <strong>SeedMind</strong> is a calm space on your phone: you <strong>talk with your Seeds Guide</strong>, get
+                plain words for what might be going on, pick <strong>one small seed</strong> (a real action), and use{' '}
+                <strong>short meditations</strong> to help it stick — the same flow as in the app.
               </p>
               <div className="cta-row">
                 <a className="btn btn-primary" href="#download">
@@ -44,7 +44,7 @@ export default function HomePage() {
             </div>
 
             <div className="hero-visual">
-              <p className="hero-visual-label">The real app — same warm tone</p>
+              <p className="hero-visual-label">Talk to your Seeds Guide</p>
               <div className="phone-frame">
                 <div className="phone-frame-inner">
                   <Image
@@ -67,28 +67,31 @@ export default function HomePage() {
         <h2 id="relate-heading" className="band-title">
           Sound familiar?
         </h2>
-        <p className="band-lead">You don’t need a lecture. You need <strong>clarity</strong> and <strong>one move</strong> you can repeat.</p>
+        <p className="band-lead">
+          You don’t need a lecture. You need something <strong>clear</strong> and <strong>one small thing</strong> you can
+          actually try.
+        </p>
         <div className="pain-grid">
           <article className="pain-card">
             <span className="pain-icon" aria-hidden>
               🌙
             </span>
-            <h3 className="pain-card-title">Mental reruns</h3>
-            <p className="pain-card-body">Thinking in circles — without a next step that fits your actual day.</p>
+            <h3 className="pain-card-title">Can’t switch off</h3>
+            <p className="pain-card-body">You lie down and your brain keeps running — same thoughts, no off switch.</p>
           </article>
           <article className="pain-card">
             <span className="pain-icon" aria-hidden>
               🎯
             </span>
-            <h3 className="pain-card-title">Big goals, frozen start</h3>
-            <p className="pain-card-body">You care about the outcome — but the first action feels embarrassing or huge.</p>
+            <h3 className="pain-card-title">Stuck at the start</h3>
+            <p className="pain-card-body">You care about changing something — but every idea feels too big or too vague.</p>
           </article>
           <article className="pain-card">
             <span className="pain-icon" aria-hidden>
               💛
             </span>
             <h3 className="pain-card-title">Harsh doesn’t work</h3>
-            <p className="pain-card-body">You want growth that feels human — not shame dressed up as motivation.</p>
+            <p className="pain-card-body">You’ve tried pushing yourself hard. It didn’t last. You want something kinder.</p>
           </article>
         </div>
       </section>
@@ -96,40 +99,51 @@ export default function HomePage() {
       <section className="section-example" aria-labelledby="example-heading">
         <div className="example-grid">
           <div className="example-copy">
-            <p className="section-kicker">Example — not a script</p>
+            <p className="section-kicker">Example</p>
             <h2 id="example-heading" className="section-title">
-              What it can look like in one pass
+              The kind of answer your Seeds Guide might give
             </h2>
             <p className="example-intro">
-              Names and details are made up — the <strong>shape</strong> is what people use the app for.
+              This is <strong>made up</strong> — but it’s close to how the app talks: simple cause-and-effect, then seeds you
+              can pick from.
             </p>
             <div className="chat-demo" role="figure" aria-label="Example chat flow">
               <div className="chat-line chat-user">
                 <span className="chat-label">You</span>
-                <p>“I keep putting off a conversation I need to have — and it’s eating my focus.”</p>
+                <p>“I don’t want to feel so lonely. I want to feel like I belong.”</p>
               </div>
               <div className="chat-line chat-guide">
                 <span className="chat-label">Seeds Guide</span>
                 <p>
-                  “Let’s name what’s actually stuck: fear of awkwardness, or not knowing the first sentence? Here’s a{' '}
-                  <strong>seed</strong> for today: write three honest bullet points — not the message, just what you want
-                  them to know. Two minutes.”
+                  “This kind of feeling can be connected to moments when someone felt they didn’t belong — including
+                  times you might have left someone on the outside without meaning to. It can also be tied to when{' '}
+                  <em>you</em> felt unseen. Naming that doesn’t fix everything overnight, but it can make the loneliness
+                  feel a little less random. From here we can look at <strong>small seeds</strong> — real actions — you
+                  can choose from.”
                 </p>
               </div>
             </div>
             <div className="seed-card">
-              <span className="seed-card-tag">Your seed</span>
-              <p className="seed-card-text">Write 3 bullet points: what you want them to understand (timer: 2 min).</p>
-              <span className="seed-card-meta">Then: optional short meditation to let it land — same rhythm as in-app.</span>
+              <span className="seed-card-tag">Seeds you could plant</span>
+              <p className="seed-card-pick">
+                In the app you’ll get <strong>several</strong> ideas like these. <strong>Pick one</strong> to start — any
+                one is enough. You can explore others when you’re ready.
+              </p>
+              <ul className="seed-options">
+                <li>Text someone you’ve been meaning to check in on.</li>
+                <li>Say hi to someone who often sits alone.</li>
+                <li>Do one small kind thing for a neighbor or coworker.</li>
+              </ul>
+              <span className="seed-card-meta">After you plant a seed, you can water it with a short meditation in the app.</span>
             </div>
           </div>
           <div className="example-visual">
-            <p className="hero-visual-label">Garden &amp; growth — in the app</p>
+            <p className="hero-visual-label">Your garden — where your seeds grow</p>
             <div className="phone-frame phone-frame--tilt">
               <div className="phone-frame-inner">
                 <Image
                   src="/marketing/app-garden.png"
-                  alt="SeedMind garden screen on iPhone"
+                  alt="SeedMind garden on iPhone"
                   width={780}
                   height={1688}
                   className="phone-shot"
@@ -143,29 +157,28 @@ export default function HomePage() {
 
       <section className="section-features">
         <p className="section-kicker">How it fits together</p>
-        <h2 className="section-title">Three loops — one gentle system</h2>
+        <h2 className="section-title">Three simple pieces</h2>
         <div className="grid3">
           <article className="mini">
             <div className="mini-num">01</div>
             <h3 className="mini-title">Seeds Guide</h3>
             <p className="mini-body">
-              Talk through what’s heavy. Get plain-language clarity and <strong>one</strong> concrete seed — not a todo
-              avalanche.
+              Say what’s on your mind. Get clear language back — and a few <strong>seed</strong> ideas, not a giant to-do
+              list.
             </p>
           </article>
           <article className="mini">
             <div className="mini-num">02</div>
             <h3 className="mini-title">Your garden</h3>
             <p className="mini-body">
-              Plant what you chose. Come back without judgment — consistency matters more than perfection.
+              Plant the seed you chose. Come back when you can — small visits count more than perfect streaks.
             </p>
           </article>
           <article className="mini">
             <div className="mini-num">03</div>
             <h3 className="mini-title">Meditations</h3>
             <p className="mini-body">
-              Short sessions to <strong>water</strong> what you planted — so the step feels real in your body, not only
-              in your notes.
+              Short sessions to <strong>water</strong> what you planted — so it sinks in, not just live in your head.
             </p>
           </article>
         </div>
@@ -173,18 +186,17 @@ export default function HomePage() {
 
       <section className="section-outcomes" aria-labelledby="outcomes-heading">
         <h2 id="outcomes-heading" className="outcomes-title">
-          What people often want after a week of honest use
+          What many people are hoping for after sticking with it a little
         </h2>
         <ul className="outcomes-list">
           <li>
-            <strong>Less rumble, more language</strong> — you can name the pattern instead of drowning in it.
+            <strong>Words for what’s going on</strong> — so it’s not just noise in your head.
           </li>
           <li>
-            <strong>A repeatable micro-step</strong> — small enough for a tired Tuesday, not only a motivated Sunday.
+            <strong>One step you can repeat</strong> — small enough for a normal tired day.
           </li>
           <li>
-            <strong>A kind place to return</strong> — the app’s job is to help you show up again, not to shame you for
-            slipping.
+            <strong>A place to return to</strong> — without shame when you drift off and come back.
           </li>
         </ul>
       </section>
@@ -197,12 +209,12 @@ export default function HomePage() {
             </a>
           </h2>
           <p>
-            Built for iPhone. Open the{' '}
+            For iPhone. Open the{' '}
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
               App Store listing
             </a>
-            , install in a few taps, and try <strong>one honest conversation</strong> — see if you walk away with a
-            single next step that feels doable.
+            , install, and try <strong>one conversation</strong> with your Seeds Guide — see if you leave with one next
+            step that feels okay to try.
           </p>
         </div>
       </section>

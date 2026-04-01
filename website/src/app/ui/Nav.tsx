@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Nav() {
@@ -5,7 +6,14 @@ export function Nav() {
     <header className="site-nav">
       <div className="site-nav-inner">
         <Link href="/" className="site-brand">
-          <span className="site-brand-dot" aria-hidden />
+          <Image
+            src="/marketing/logo.png"
+            alt=""
+            width={36}
+            height={36}
+            className="site-brand-logo"
+            priority
+          />
           <span className="site-brand-name">SeedMind</span>
         </Link>
         <nav className="site-nav-links" aria-label="Legal and support">
