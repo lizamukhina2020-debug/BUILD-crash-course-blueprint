@@ -12,18 +12,32 @@ export default function HomePage() {
           <span />
           <span />
         </div>
-        <section className="hero">
+        <section className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
             <div className="hero-copy">
               <div className="badge">
                 <span aria-hidden>🌱</span>
                 <span>For when your head won’t quiet down</span>
               </div>
-              <h1 className="h1">Turn the spiral into one step.</h1>
+              <h1 className="h1" id="hero-heading">
+                Turn the spiral into one step.
+              </h1>
+              <p className="hero-step-label">
+                <span className="hero-step-num">1</span> The problem we solve
+              </p>
+              <p className="hero-problem-hook">
+                You’re trying to <strong>fix something</strong> or <strong>reach a goal</strong> that matters — money,
+                belonging, love, stress, or something hard to name. You’ve tried other apps, tips, or pushing harder —{' '}
+                <strong>it’s still not really moving</strong>. You need a <strong>clear path you can track</strong>, not
+                another night stuck in your head.
+              </p>
+              <p className="hero-step-label hero-step-label--inline">
+                <span className="hero-step-num">2</span> What SeedMind does
+              </p>
               <p className="hero-line">
-                When your mind won’t quit, <strong>SeedMind</strong> gives you the same rhythm as the app:{' '}
-                <strong>clarity</strong> → <strong>one real seed</strong> → <strong>your garden</strong> →{' '}
-                <strong>water</strong> → <strong>harvest</strong> when life actually moves — kind, concrete, pocket-sized.
+                One rhythm, end to end: <strong>clarity</strong> → <strong>one real seed</strong> →{' '}
+                <strong>your garden</strong> → <strong>water</strong> → <strong>harvest</strong> when life actually shifts
+                — kind, concrete, and built to repeat.
               </p>
               <div className="cta-row">
                 <a
@@ -64,12 +78,15 @@ export default function HomePage() {
       </div>
 
       <section className="band-relate" aria-labelledby="relate-heading">
+        <p className="section-flow-kicker">
+          <span className="hero-step-num">3</span> Does this sound like you?
+        </p>
         <h2 id="relate-heading" className="band-title">
           Sound familiar?
         </h2>
         <p className="band-lead">
-          You don’t need a lecture. You need something <strong>clear</strong> and <strong>one small thing</strong> you can
-          actually try.
+          If yes — the sections below walk through <strong>how SeedMind answers it</strong>, with a real example and the
+          pieces in the app.
         </p>
         <div className="pain-grid">
           <article className="pain-card">
@@ -99,15 +116,17 @@ export default function HomePage() {
       <section className="section-example" aria-labelledby="example-heading">
         <div className="example-grid">
           <div className="example-copy">
-            <p className="section-kicker">Inside a real turn</p>
+            <p className="section-flow-kicker section-flow-kicker--soft">
+              <span className="hero-step-num">4</span> Inside the app
+            </p>
             <h2 id="example-heading" className="section-title">
-              How the Seeds Guide sounds in SeedMind
+              What you get for a real goal or problem
             </h2>
             <p className="example-intro">
-              After you share what’s going on, the Guide explores with you — then names the <strong>mirror</strong>: how
-              something you did toward others may line up with what you feel now. Then you choose <strong>seeds</strong>{' '}
-              (real actions). Below is that <strong>mirror moment</strong>, shortened for the page — the same structure
-              the app uses.
+              You come in with a <strong>real goal or stuck problem</strong> — money, belonging, love, stress, or
+              whatever won’t let go. The <strong>Seeds Guide</strong> walks you through <strong>cause and effect</strong> in
+              normal words, then a <strong>mirror moment</strong> and <strong>pickable seeds</strong> (small actions) — not
+              a wall of generic advice. The snippet below is that <strong>mirror beat</strong>, same shape as in the app.
             </p>
             <div className="chat-demo" role="figure" aria-label="Example Seeds Guide mirror moment">
               <div className="chat-line chat-user">
@@ -167,7 +186,9 @@ export default function HomePage() {
       </section>
 
       <section className="section-features">
-        <p className="section-kicker section-kicker--spark">The pieces</p>
+        <p className="section-flow-kicker section-flow-kicker--spark">
+          <span className="hero-step-num">5</span> The pieces
+        </p>
         <h2 className="section-title">
           <span className="title-emoji" aria-hidden>
             ✨
@@ -214,7 +235,9 @@ export default function HomePage() {
       <section className="section-cycle" aria-labelledby="cycle-heading">
         <div className="cycle-grid">
           <div className="cycle-copy">
-            <p className="section-kicker">The finish line</p>
+            <p className="section-flow-kicker section-flow-kicker--soft">
+              <span className="hero-step-num">6</span> The finish line
+            </p>
             <h2 id="cycle-heading" className="section-title">
               Harvest — when life moves, log the win
             </h2>
@@ -254,23 +277,50 @@ export default function HomePage() {
       </section>
 
       <section className="section-outcomes" aria-labelledby="outcomes-heading">
+        <p className="section-flow-kicker section-flow-kicker--outcomes">
+          <span className="hero-step-num">7</span> What you’re building toward
+        </p>
         <h2 id="outcomes-heading" className="outcomes-title">
-          What you’re really reaching for when you stick with it
+          <span className="title-emoji title-emoji--lg" aria-hidden>
+            🌟
+          </span>{' '}
+          When you stick with the loop
         </h2>
-        <ul className="outcomes-list">
-          <li>
-            <strong>Problems that start to look fixable</strong> — not because someone yelled at you, but because you see
-            a line between what you do for others and what shows up for you.
-          </li>
-          <li>
-            <strong>Goals that meet the ground</strong> — tiny actions you repeat, track in the garden, and water — so
-            “change” isn’t only a mood, it’s something you did.
-          </li>
-          <li>
-            <strong>A reality that can shift</strong> — then a <strong>harvest</strong> you record, so you don’t forget
-            the moment things moved. That’s the point: try a new angle, stay kind, and let the app hold the thread.
-          </li>
-        </ul>
+        <p className="outcomes-lead">
+          Not magic overnight — <strong>progress you can point to</strong>.
+        </p>
+        <div className="outcomes-grid">
+          <article className="outcome-card outcome-card--fix">
+            <span className="outcome-emoji" aria-hidden>
+              🧭
+            </span>
+            <h3 className="outcome-card-title">Problems feel workable</h3>
+            <p className="outcome-card-body">
+              You start to see a line between what you <strong>do for others</strong> and what <strong>shows up</strong> for
+              you — without someone yelling “just think positive.”
+            </p>
+          </article>
+          <article className="outcome-card outcome-card--goals">
+            <span className="outcome-emoji" aria-hidden>
+              🎯
+            </span>
+            <h3 className="outcome-card-title">Goals hit the ground</h3>
+            <p className="outcome-card-body">
+              Tiny actions you <strong>repeat</strong>, log in the garden, and water — so change isn’t only a mood, it’s
+              something you <strong>did</strong>.
+            </p>
+          </article>
+          <article className="outcome-card outcome-card--shift">
+            <span className="outcome-emoji" aria-hidden>
+              ✨
+            </span>
+            <h3 className="outcome-card-title">Shifts you can name</h3>
+            <p className="outcome-card-body">
+              When reality moves, you <strong>harvest</strong> it — a record of the win so you don’t forget the thread you’ve
+              been pulling.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="download" className="section-download">
