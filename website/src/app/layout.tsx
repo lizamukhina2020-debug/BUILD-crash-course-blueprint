@@ -18,12 +18,13 @@ const sans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: 'SeedMind',
-  description: 'Plant seeds of change. Grow your inner garden.',
+  description:
+    'Calm companion for clarity and small steps: chat, seeds, garden, and meditation — built for real stuck moments.',
   metadataBase: new URL('https://seedmind.vercel.app'),
 };
 
 export const viewport = {
-  themeColor: '#08070a',
+  themeColor: '#faf7f2',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
