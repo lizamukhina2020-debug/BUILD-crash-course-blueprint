@@ -25,18 +25,41 @@ export default function HomePage() {
               <p className="hero-step-label">
                 <span className="hero-step-num">1</span> The problem we solve
               </p>
-              <p className="hero-problem-hook">
-                Something real won’t move — money, belonging, stress, love, or whatever keeps looping. You’ve tried other
-                fixes; <strong>nothing sticks</strong>. You need <strong>one path you can see and repeat</strong>, not
-                another spiral night.
-              </p>
+              <ul className="situation-list situation-list--hero">
+                <li>
+                  <em>Stuck</em> on something real — money, belonging, stress, love, or a loop you can’t name.
+                </li>
+                <li>
+                  You’ve tried other fixes; <em>nothing really sticks</em>.
+                </li>
+                <li>
+                  You want <em>one path you can see and repeat</em> — not another night in your head.
+                </li>
+              </ul>
               <p className="hero-step-label hero-step-label--inline">
                 <span className="hero-step-num">2</span> What SeedMind does
               </p>
-              <p className="hero-line">
-                <strong>Clarity</strong> → <strong>one seed</strong> → <strong>garden</strong> →{' '}
-                <strong>water</strong> → <strong>harvest</strong> when things shift. Kind, concrete, repeatable.
-              </p>
+              <p className="hero-rhythm-label">One loop, end to end</p>
+              <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
+                <span className="hero-rhythm-pill">Clarity</span>
+                <span className="hero-rhythm-arrow" aria-hidden>
+                  →
+                </span>
+                <span className="hero-rhythm-pill">One seed</span>
+                <span className="hero-rhythm-arrow" aria-hidden>
+                  →
+                </span>
+                <span className="hero-rhythm-pill">Garden</span>
+                <span className="hero-rhythm-arrow" aria-hidden>
+                  →
+                </span>
+                <span className="hero-rhythm-pill">Water</span>
+                <span className="hero-rhythm-arrow" aria-hidden>
+                  →
+                </span>
+                <span className="hero-rhythm-pill">Harvest</span>
+              </div>
+              <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
               <div className="cta-row">
                 <a
                   className="btn btn-primary"
@@ -111,54 +134,79 @@ export default function HomePage() {
       </section>
 
       <section className="section-example" aria-labelledby="example-heading">
-        <div className="example-grid">
-          <div className="example-copy">
-            <p className="section-flow-kicker section-flow-kicker--soft">
-              <span className="hero-step-num">4</span> Inside the app
-            </p>
-            <h2 id="example-heading" className="section-title">
-              What you get for a real goal or problem
-            </h2>
-            <p className="example-intro">
-              You bring a <strong>real stuck spot</strong>. The <strong>Seeds Guide</strong> maps cause → effect, then a{' '}
-              <strong>mirror</strong> and <strong>small actions you can pick</strong> — not generic pep talk. Below is a
-              shortened sample of that mirror turn.
-            </p>
-            <div className="chat-demo" role="figure" aria-label="Example Seeds Guide mirror moment">
-              <div className="chat-line chat-user">
-                <span className="chat-label">You</span>
-                <p>“I don’t want to feel so lonely. I want to feel like I belong.”</p>
-              </div>
-              <div className="chat-line chat-guide">
-                <span className="chat-label">Seeds Guide</span>
-                <p>
-                  Was there a time someone wanted in, and you held back — no reply, no invite, looked away? They may have
-                  felt <strong>left out</strong>.
-                </p>
-                <p>
-                  What you want now — <strong>belonging</strong> — can circle back. <strong>Life mirrors.</strong> Not to
-                  shame you: so you can <strong>plant something new</strong> — one small act that gives someone else the
-                  warmth you’re hungry for.
-                </p>
+        <div className="example-header">
+          <p className="section-flow-kicker section-flow-kicker--soft">
+            <span className="hero-step-num">4</span> Inside the app
+          </p>
+          <h2 id="example-heading" className="section-title section-title--tight">
+            From stuck → to one small action
+          </h2>
+          <p className="example-lead">The Guide maps your situation in three beats — then you pick a seed.</p>
+          <div className="example-flow" role="list">
+            <div className="example-flow-card" role="listitem">
+              <span className="example-flow-num">1</span>
+              <div>
+                <h3 className="example-flow-title">Cause &amp; effect</h3>
+                <p className="example-flow-body">Plain language, not a lecture.</p>
               </div>
             </div>
+            <div className="example-flow-card" role="listitem">
+              <span className="example-flow-num">2</span>
+              <div>
+                <h3 className="example-flow-title">Mirror</h3>
+                <p className="example-flow-body">How what you gave and what you want might connect.</p>
+              </div>
+            </div>
+            <div className="example-flow-card" role="listitem">
+              <span className="example-flow-num">3</span>
+              <div>
+                <h3 className="example-flow-title">Pick a seed</h3>
+                <p className="example-flow-body">Tiny actions you choose from — always your call.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="example-body">
+          <div className="example-main">
+            <details className="chat-disclosure">
+              <summary className="chat-disclosure-summary">
+                <span className="chat-disclosure-title">Hear the Guide (short sample)</span>
+                <span className="chat-disclosure-hint">Tap to expand</span>
+              </summary>
+              <div className="chat-demo" role="figure" aria-label="Example Seeds Guide mirror moment">
+                <div className="chat-line chat-user">
+                  <span className="chat-label">You</span>
+                  <p>“I don’t want to feel so lonely. I want to feel like I belong.”</p>
+                </div>
+                <div className="chat-line chat-guide">
+                  <span className="chat-label">Seeds Guide</span>
+                  <p>
+                    Was there a time someone wanted in, and you held back? They may have felt <strong>left out</strong>.
+                  </p>
+                  <p>
+                    What you want — <strong>belonging</strong> — can circle back. <strong>Life mirrors.</strong> So you can{' '}
+                    <strong>plant something new</strong>: one small warmth for someone else.
+                  </p>
+                </div>
+              </div>
+            </details>
             <div className="seed-card">
               <span className="seed-card-tag">Seeds you could plant</span>
               <p className="seed-card-pick">
-                <strong>Pick one</strong> to start. The app suggests more like these when you’re ready.
+                <strong>Pick one.</strong> The app suggests more when you’re ready.
               </p>
-              <ul className="seed-options">
-                <li>Text someone you’ve drifted from.</li>
-                <li>Include someone who looks alone.</li>
-                <li>Listen with full presence — phone away.</li>
+              <ul className="seed-options seed-options--compact">
+                <li>Text someone you’ve drifted from</li>
+                <li>Include someone who looks alone</li>
+                <li>Listen with full presence — phone away</li>
               </ul>
               <span className="seed-card-meta">
-                <strong>Water</strong> it in-app: short meditation — their face, the good you gave — so the seed can ripen.
+                <strong>Water</strong> in-app: short meditation on their face and the good you gave.
               </span>
             </div>
           </div>
-          <div className="example-visual">
-            <p className="hero-visual-label">Your garden — where your seeds grow</p>
+          <aside className="example-side">
+            <p className="hero-visual-label">Your garden</p>
             <div className="phone-frame phone-frame--tilt">
               <div className="phone-frame-inner">
                 <Image
@@ -171,7 +219,7 @@ export default function HomePage() {
                 />
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 

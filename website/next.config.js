@@ -7,6 +7,15 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Fresh HTML on the landing page so nav/copy updates aren’t stuck behind CDN cache.
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' }],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
