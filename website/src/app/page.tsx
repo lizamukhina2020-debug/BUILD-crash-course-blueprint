@@ -201,7 +201,8 @@ export default function HomePage() {
                 <li>Listen with full presence — phone away</li>
               </ul>
               <span className="seed-card-meta">
-                <strong>Water</strong> in-app: short meditation on their face and the good you gave.
+                <strong>Water</strong> in-app: a short meditation where you visualize their happiness from what you did,
+                widen that wish to others and toward your own goal — a catalyst that helps growth show up sooner.
               </span>
             </div>
           </div>
