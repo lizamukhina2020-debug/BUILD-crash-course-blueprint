@@ -1,0 +1,21 @@
+# Optional: after a push, tells Vercel to start a new production build from Git.
+# 1) Vercel → seedmind project → Settings → Git → Deploy Hooks → create hook for `main`
+# 2) GitHub → repo → Settings → Secrets → Actions → add VERCEL_DEPLOY_HOOK_URL with the hook URL
+# If the secret is missing, this workflow is skipped (no failure).
+
+name: Trigger SeedMind website deploy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - '.github/workflows/vercel-seedmind-website.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy-hook:
+    if: ${{ secrets.VERCEL_DEPLOY_HOOK_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST Vercel deploy hook
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"

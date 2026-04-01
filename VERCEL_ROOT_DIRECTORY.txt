@@ -10,3 +10,37 @@ This repo has TWO Vercel projects (same GitHub repo, different Root Directory):
    Setup:           build-site/README.md
 
 Repo root package.json is Expo — never use "." as Root Directory for the Next.js app.
+
+--- If seedmind.vercel.app still shows the OLD (cream) design ---
+
+A) Git on Vercel
+   Vercel → seedmind project → Settings → Git
+   - Connected repo must be THIS monorepo (the one you push to).
+   - Root Directory MUST be exactly: website
+   - Production Branch: main (or whatever you deploy from)
+   Then Deployments → Redeploy latest, or push an empty commit.
+
+B) “Git author … must have access to the team” (blocks CLI + sometimes Git)
+   Commits authored as nataliia@Mac.lan can be refused if that email is not on your Vercel team.
+   Fix ONE of:
+   - Vercel → Team / Account → add and verify the same email you use in git; or invite that identity; or
+   - Point git at the email tied to your Vercel login, then amend + push, e.g.:
+       git config user.email "you@your-verified-email.com"
+       git commit --amend --reset-author --no-edit
+       git push --force-with-lease
+   Docs: https://vercel.com/docs/deployments/troubleshoot-project-collaboration#team-configuration
+
+C) Deploy from your machine (always uploads THIS folder — fixes “old site” when Git auto-deploy is stale)
+   cd website && npm run deploy:prod
+   (same as: npx vercel deploy --prod — requires: vercel login once)
+
+D) Optional: auto-deploy on every git push (GitHub Actions + Vercel Deploy Hook)
+   - Vercel → seedmind project → Settings → Git → Deploy Hooks → Add → Branch: main → Create.
+   - Copy the hook URL.
+   - GitHub → repo → Settings → Secrets and variables → Actions → New repository secret:
+     Name: VERCEL_DEPLOY_HOOK_URL   Value: (paste URL)
+   - Push to main; workflow `.github/workflows/vercel-seedmind-website.yml` POSTs the hook so Vercel rebuilds from Git.
+
+E) Why localhost was new but seedmind.vercel.app was old
+   - Production was still serving an older deployment (Git hook not firing, wrong Root Directory, or skipped builds).
+   - CLI deploy (C) uploads your local `website/` tree and promotes to production immediately — use after big changes if the live URL lags.
