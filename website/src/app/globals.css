@@ -737,11 +737,11 @@ a {
 }
 
 .example-intro {
-  margin: -6px 0 22px;
+  margin: -6px 0 26px;
   color: var(--muted);
   font-size: 15px;
-  line-height: 1.55;
-  max-width: 36rem;
+  line-height: 1.62;
+  max-width: 34rem;
 }
 
 .example-intro strong {
@@ -749,8 +749,8 @@ a {
 }
 
 .chat-demo {
-  margin-bottom: 18px;
-  padding: 18px 16px;
+  margin-bottom: 24px;
+  padding: 22px 18px;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--border);
@@ -784,7 +784,7 @@ a {
 
 .chat-guide p {
   color: var(--muted);
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 
 .chat-guide p:last-child {
@@ -796,7 +796,7 @@ a {
 }
 
 .seed-card {
-  padding: 18px 18px 16px;
+  padding: 22px 20px 18px;
   border-radius: var(--radius-md);
   border: 1px dashed rgba(196, 147, 92, 0.55);
   background: rgba(255, 255, 255, 0.9);
