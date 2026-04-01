@@ -1,5 +1,5 @@
 export default function PrivacyPage() {
-  const lastUpdated = '2026-02-20';
+  const lastUpdated = '2026-03-31';
 
   return (
     <>
@@ -24,8 +24,10 @@ export default function PrivacyPage() {
             your device and (if you enable cloud sync) in our database tied to your user ID.
           </li>
           <li>
-            <strong>Analytics</strong>: We collect app usage analytics (like screen views and feature usage). We avoid
-            sending personal data in analytics events.
+            <strong>Analytics</strong>: We collect product analytics (for example screen views and feature usage). We do
+            not put message content, email, or similar details into analytics <strong>event parameters</strong>. When you
+            are signed in, our analytics provider may associate events with a <strong>pseudonymous app account ID</strong>{' '}
+            (your Firebase user id) — not your name or chat text.
           </li>
         </ul>
 
@@ -42,10 +44,13 @@ export default function PrivacyPage() {
           providers process data on our behalf under their terms.
         </p>
 
-        <h2>Data retention</h2>
+        <h2>Data retention and deletion</h2>
         <p>
-          We retain data as long as needed to provide the app. You can request deletion by contacting support (see
-          Support page).
+          We retain data as long as needed to provide the app. On the <strong>iPhone app</strong>, you can delete your
+          account and cloud data from <strong>Settings</strong> (delete account). That removes your SeedMind cloud data
+          tied to your account and deletes your sign-in profile, subject to your provider&apos;s normal auth flows. If
+          delete isn&apos;t available on your platform or something fails, contact us via the Support page and we&apos;ll
+          help.
         </p>
 
         <h2>Security</h2>

@@ -25,74 +25,77 @@ export default function HomePage() {
               <h1 className="h1" id="hero-heading">
                 Turn the spiral into one step.
               </h1>
-              <p className="hero-step-label">
-                <span className="hero-step-num">1</span> The problem we solve
-              </p>
-              <ul className="situation-list situation-list--hero">
-                <li>
-                  <em>Stuck</em> on something real — money, belonging, stress, love, or a loop you can’t name.
-                </li>
-                <li>
-                  You’ve tried other fixes; <em>nothing really sticks</em>.
-                </li>
-                <li>
-                  You want <em>one path you can see and repeat</em> — not another night in your head.
-                </li>
-              </ul>
-              <p className="hero-step-label hero-step-label--inline">
-                <span className="hero-step-num">2</span> What SeedMind does
-              </p>
-              <p className="hero-rhythm-label">One loop, end to end</p>
-              <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
-                <div className="hero-rhythm-track">
-                  <span className="hero-rhythm-pill">Clarity</span>
-                  <span className="hero-rhythm-arrow" aria-hidden>
-                    →
-                  </span>
-                  <span className="hero-rhythm-pill">One seed</span>
-                  <span className="hero-rhythm-arrow" aria-hidden>
-                    →
-                  </span>
-                  <span className="hero-rhythm-pill">Garden</span>
-                </div>
-                <span className="hero-rhythm-between" aria-hidden>
-                  <span className="hero-rhythm-between-icon">→</span>
-                </span>
-                <div className="hero-rhythm-track">
-                  <span className="hero-rhythm-pill">Water</span>
-                  <span className="hero-rhythm-arrow" aria-hidden>
-                    →
-                  </span>
-                  <span className="hero-rhythm-pill">Harvest</span>
-                </div>
+              <div className="hero-step hero-step--problem">
+                <p className="hero-step-label">
+                  <span className="hero-step-num">1</span> The problem we solve
+                </p>
+                <ul className="situation-list situation-list--hero">
+                  <li>
+                    <em>Stuck</em> on something real — money, belonging, stress, love, or a loop you can’t name.
+                  </li>
+                  <li>
+                    You’ve tried other fixes; <em>nothing really sticks</em>.
+                  </li>
+                  <li>
+                    You want <em>one path you can see and repeat</em> — not another night in your head.
+                  </li>
+                </ul>
               </div>
-              <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
-              <div className="cta-row cta-row--hero">
-                <a
-                  className="btn btn-primary"
-                  href={APP_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="btn-label-hero-full">Download on iPhone</span>
-                  <span className="btn-label-hero-short">Download</span>
-                </a>
-                <Link className="btn btn-ghost" href="/support">
-                  Support
-                </Link>
-                <Link className="btn btn-ghost" href="/privacy">
-                  Privacy
-                </Link>
+              <div className="hero-step hero-step--product">
+                <p className="hero-step-label">
+                  <span className="hero-step-num">2</span> What SeedMind does
+                </p>
+                <p className="hero-rhythm-label">One loop, end to end</p>
+                <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
+                  <div className="hero-rhythm-track">
+                    <span className="hero-rhythm-pill">Clarity</span>
+                    <span className="hero-rhythm-arrow" aria-hidden>
+                      →
+                    </span>
+                    <span className="hero-rhythm-pill">One seed</span>
+                    <span className="hero-rhythm-arrow" aria-hidden>
+                      →
+                    </span>
+                    <span className="hero-rhythm-pill">Garden</span>
+                  </div>
+                  <span className="hero-rhythm-between" aria-hidden>
+                    <span className="hero-rhythm-between-icon">→</span>
+                  </span>
+                  <div className="hero-rhythm-track">
+                    <span className="hero-rhythm-pill">Water</span>
+                    <span className="hero-rhythm-arrow" aria-hidden>
+                      →
+                    </span>
+                    <span className="hero-rhythm-pill">Harvest</span>
+                  </div>
+                </div>
+                <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
+                <div className="cta-row cta-row--hero">
+                  <a
+                    className="btn btn-primary"
+                    href={APP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="btn-label-hero-full">Download on iPhone</span>
+                    <span className="btn-label-hero-short">Download</span>
+                  </a>
+                </div>
+                <p className="hero-legal-hint">
+                  Questions? <Link href="/support">Support</Link>
+                  {' · '}
+                  <Link href="/privacy">Privacy</Link> — also in the header.
+                </p>
               </div>
             </div>
 
             <div className="hero-visual">
-              <p className="hero-visual-label">Talk to your Seeds Guide</p>
+              <p className="hero-visual-label">Ask your Seeds Guide</p>
               <div className="phone-frame">
                 <div className="phone-frame-inner">
                   <Image
                     src="/marketing/app-chat.png"
-                    alt="SeedMind: conversation with Seeds Guide on iPhone"
+                    alt="SeedMind: ask your Seeds Guide on iPhone"
                     width={780}
                     height={1688}
                     className="phone-shot"
