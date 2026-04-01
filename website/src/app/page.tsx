@@ -15,80 +15,79 @@ export default function HomePage() {
           <span />
           <span />
         </div>
-        <section className="hero" aria-labelledby="hero-heading">
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <div className="badge">
-                <span aria-hidden>🌱</span>
-                <span>For when your head won’t quiet down</span>
-              </div>
-              <h1 className="h1" id="hero-heading">
-                Turn the spiral into one step.
-              </h1>
-              <div className="hero-step hero-step--problem">
-                <p className="hero-step-label">
-                  <span className="hero-step-num">1</span> The problem we solve
-                </p>
-                <ul className="situation-list situation-list--hero">
-                  <li>
-                    <em>Stuck</em> on something real — money, belonging, stress, love, or a loop you can’t name.
-                  </li>
-                  <li>
-                    You’ve tried other fixes; <em>nothing really sticks</em>.
-                  </li>
-                  <li>
-                    You want <em>one path you can see and repeat</em> — not another night in your head.
-                  </li>
-                </ul>
-              </div>
-              <div className="hero-step hero-step--product">
-                <p className="hero-step-label">
-                  <span className="hero-step-num">2</span> What SeedMind does
-                </p>
-                <p className="hero-rhythm-label">One loop, end to end</p>
-                <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
-                  <div className="hero-rhythm-track">
-                    <span className="hero-rhythm-pill">Clarity</span>
-                    <span className="hero-rhythm-arrow" aria-hidden>
-                      →
-                    </span>
-                    <span className="hero-rhythm-pill">One seed</span>
-                    <span className="hero-rhythm-arrow" aria-hidden>
-                      →
-                    </span>
-                    <span className="hero-rhythm-pill">Garden</span>
-                  </div>
-                  <span className="hero-rhythm-between" aria-hidden>
-                    <span className="hero-rhythm-between-icon">→</span>
-                  </span>
-                  <div className="hero-rhythm-track">
-                    <span className="hero-rhythm-pill">Water</span>
-                    <span className="hero-rhythm-arrow" aria-hidden>
-                      →
-                    </span>
-                    <span className="hero-rhythm-pill">Harvest</span>
-                  </div>
-                </div>
-                <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
-                <div className="cta-row cta-row--hero">
-                  <a
-                    className="btn btn-primary"
-                    href={APP_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="btn-label-hero-full">Download on iPhone</span>
-                    <span className="btn-label-hero-short">Download</span>
-                  </a>
-                </div>
-                <p className="hero-legal-hint">
-                  Questions? <Link href="/support">Support</Link>
-                  {' · '}
-                  <Link href="/privacy">Privacy</Link> — also in the header.
-                </p>
-              </div>
+        <section className="hero-panel" aria-labelledby="hero-heading">
+          <div className="hero-copy">
+            <div className="badge">
+              <span aria-hidden>🌱</span>
+              <span>For when your head won’t quiet down</span>
             </div>
-
+            <h1 className="h1" id="hero-heading">
+              Turn the spiral into one step.
+            </h1>
+            <p className="hero-step-label">
+              <span className="hero-step-num">1</span> The problem we solve
+            </p>
+            <ul className="situation-list situation-list--hero">
+              <li>
+                <em>Stuck</em> on something real — money, belonging, stress, love, or a loop you can’t name.
+              </li>
+              <li>
+                You’ve tried other fixes; <em>nothing really sticks</em>.
+              </li>
+              <li>
+                You want <em>one path you can see and repeat</em> — not another night in your head.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section className="hero-panel" aria-labelledby="hero-product-heading">
+          <div className="hero-grid">
+            <div className="hero-copy hero-copy--product">
+              <p className="hero-step-label" id="hero-product-heading">
+                <span className="hero-step-num">2</span> What SeedMind does
+              </p>
+              <p className="hero-rhythm-label">One loop, end to end</p>
+              <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
+                <div className="hero-rhythm-track">
+                  <span className="hero-rhythm-pill">Clarity</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">One seed</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">Garden</span>
+                </div>
+                <span className="hero-rhythm-between" aria-hidden>
+                  <span className="hero-rhythm-between-icon">→</span>
+                </span>
+                <div className="hero-rhythm-track">
+                  <span className="hero-rhythm-pill">Water</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">Harvest</span>
+                </div>
+              </div>
+              <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
+              <div className="cta-row cta-row--hero">
+                <a
+                  className="btn btn-primary"
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="btn-label-hero-full">Download on iPhone</span>
+                  <span className="btn-label-hero-short">Download</span>
+                </a>
+              </div>
+              <p className="hero-legal-hint">
+                Questions? <Link href="/support">Support</Link>
+                {' · '}
+                <Link href="/privacy">Privacy</Link> — also in the header.
+              </p>
+            </div>
             <div className="hero-visual">
               <p className="hero-visual-label">Ask your Seeds Guide</p>
               <div className="phone-frame">

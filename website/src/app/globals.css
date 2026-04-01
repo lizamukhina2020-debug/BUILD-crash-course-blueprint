@@ -256,10 +256,11 @@ a {
 .hero-shell {
   position: relative;
   margin: -28px -24px 0;
-  padding: 28px 24px 48px;
-  min-height: min(88vh, 880px);
+  padding: 28px 24px 40px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
 }
 
 .hero-orbs {
@@ -316,11 +317,9 @@ a {
   }
 }
 
-.hero {
+.hero-panel {
   position: relative;
   width: 100%;
-  max-width: 1160px;
-  margin: 0 auto;
   padding: 32px 28px 36px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
@@ -329,7 +328,7 @@ a {
   overflow: hidden;
 }
 
-.hero::before {
+.hero-panel::before {
   content: '';
   position: absolute;
   top: 0;
@@ -350,23 +349,8 @@ a {
   animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero-step--problem {
-  margin-top: 4px;
-  padding: 20px 0 22px;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero-step--product {
-  margin-top: 22px;
-  padding: 22px 20px 20px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 251, 247, 0.88) 100%);
-  box-shadow: 0 6px 24px rgba(43, 27, 19, 0.05);
-}
-
-.hero-step--product > .hero-step-label {
-  margin-top: 0;
+.hero-copy--product {
+  animation-delay: 0.06s;
 }
 
 .hero-legal-hint {
@@ -582,7 +566,7 @@ a {
   color: var(--muted);
 }
 
-.hero-step--product .hero-rhythm-note {
+.hero-copy--product .hero-rhythm-note {
   margin-bottom: 16px;
 }
 
@@ -768,7 +752,7 @@ a {
 
 /* Phone + hero visual */
 .hero-visual {
-  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .hero-visual-label {
@@ -1552,11 +1536,6 @@ a {
     gap: 28px;
   }
 
-  .hero-shell {
-    min-height: auto;
-    padding-bottom: 36px;
-  }
-
   .pain-grid {
     grid-template-columns: 1fr;
   }
@@ -1595,20 +1574,12 @@ a {
 
   .hero-shell {
     margin: -20px -18px 0;
-    padding: 20px 18px 36px;
+    padding: 20px 18px 32px;
+    gap: 24px;
   }
 
-  .hero {
+  .hero-panel {
     padding: 26px 20px;
-  }
-
-  .hero-step--product {
-    padding: 18px 16px 16px;
-    margin-top: 18px;
-  }
-
-  .hero-step--problem {
-    padding: 16px 0 18px;
   }
 
   .band-relate,
