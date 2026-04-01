@@ -44,33 +44,38 @@ export default function HomePage() {
               </p>
               <p className="hero-rhythm-label">One loop, end to end</p>
               <div className="hero-rhythm" aria-label="SeedMind flow: clarity through harvest">
-                <span className="hero-rhythm-pill">Clarity</span>
-                <span className="hero-rhythm-arrow" aria-hidden>
-                  →
+                <div className="hero-rhythm-track">
+                  <span className="hero-rhythm-pill">Clarity</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">One seed</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">Garden</span>
+                </div>
+                <span className="hero-rhythm-between" aria-hidden>
+                  <span className="hero-rhythm-between-icon">→</span>
                 </span>
-                <span className="hero-rhythm-pill">One seed</span>
-                <span className="hero-rhythm-arrow" aria-hidden>
-                  →
-                </span>
-                <span className="hero-rhythm-pill">Garden</span>
-                <span className="hero-rhythm-arrow" aria-hidden>
-                  →
-                </span>
-                <span className="hero-rhythm-pill">Water</span>
-                <span className="hero-rhythm-arrow" aria-hidden>
-                  →
-                </span>
-                <span className="hero-rhythm-pill">Harvest</span>
+                <div className="hero-rhythm-track">
+                  <span className="hero-rhythm-pill">Water</span>
+                  <span className="hero-rhythm-arrow" aria-hidden>
+                    →
+                  </span>
+                  <span className="hero-rhythm-pill">Harvest</span>
+                </div>
               </div>
               <p className="hero-rhythm-note">Kind, concrete, built to repeat.</p>
-              <div className="cta-row">
+              <div className="cta-row cta-row--hero">
                 <a
                   className="btn btn-primary"
                   href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Download on iPhone
+                  <span className="btn-label-hero-full">Download on iPhone</span>
+                  <span className="btn-label-hero-short">Download</span>
                 </a>
                 <Link className="btn btn-ghost" href="/support">
                   Support
