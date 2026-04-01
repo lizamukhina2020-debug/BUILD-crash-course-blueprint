@@ -289,12 +289,14 @@
       max-width: 180px;
       object-fit: contain;
     }
-    .stack-logos .logo-wrap.expo-eas img {
+    .stack-logos .logo-wrap.expo-eas img,
+    .stack-logos .logo-wrap.testflight img {
       max-height: 52px;
       max-width: 220px;
+      width: auto;
+      height: auto;
     }
-    .stack-logos .logo-wrap.app-store img,
-    .stack-logos .logo-wrap.testflight img {
+    .stack-logos .logo-wrap.app-store img {
       height: 52px;
       max-width: 52px;
     }
@@ -655,19 +657,162 @@
       outline: 2px solid var(--accent);
       outline-offset: 3px;
     }
-    .pdf-hint {
-      margin: 0.6rem auto 0;
-      font-size: 0.82rem;
-      color: var(--muted);
-      max-width: 26rem;
-      line-height: 1.5;
-    }
     @media print {
       .no-print { display: none !important; }
-      .bg-mesh, .grid { display: none; }
-      body { background: #fff; color: #111; }
-      section, header.hero, .cta-box, .cta-open { break-inside: avoid; box-shadow: none; }
-      .inspo-card img { background: #eee; }
+      .bg-mesh, .grid { display: none !important; }
+      @page { margin: 0.65in; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      html, body {
+        background: #fff !important;
+        color: #0f172a !important;
+      }
+      .wrap {
+        max-width: 100% !important;
+        padding: 0.5rem 0 !important;
+      }
+      header.hero {
+        overflow: visible !important;
+        box-shadow: none !important;
+        background: #f1f5f9 !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      header.hero::before {
+        display: none !important;
+        content: none !important;
+      }
+      h1, h1 .glow {
+        color: #0f172a !important;
+        text-shadow: none !important;
+      }
+      h2, h3 {
+        color: #0f172a !important;
+      }
+      p, li, td, .aside {
+        color: #1e293b !important;
+      }
+      .muted, .hero-lead, .byline {
+        color: #334155 !important;
+      }
+      .hero-lead strong, .hero-lead a,
+      p strong {
+        color: #0f172a !important;
+      }
+      .mono { color: #0e7490 !important; }
+      a {
+        color: #0369a1 !important;
+        text-decoration: underline !important;
+      }
+      a.seed-link, .seed-inline {
+        color: #047857 !important;
+      }
+      .badge {
+        background: #fff !important;
+        border-color: #94a3b8 !important;
+        color: #475569 !important;
+      }
+      .badge.hot { color: #0369a1 !important; border-color: #7dd3fc !important; }
+      .badge.seed { color: #047857 !important; border-color: #6ee7b7 !important; }
+      section {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        color: #1e293b !important;
+      }
+      section p, section li { color: #1e293b !important; }
+      .fun {
+        background: #fffbeb !important;
+        border-color: #fcd34d !important;
+        color: #78350f !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .tips-box {
+        background: #fffbeb !important;
+        border-color: #f59e0b !important;
+        color: #422006 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .tips-box li, .tips-box h3 { color: inherit !important; }
+      .pmf-note, .story, .inspo-intro {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .pmf-note {
+        background: #f0f9ff !important;
+        border-color: #bae6fd !important;
+        color: #0c4a6e !important;
+      }
+      .story {
+        background: #faf5ff !important;
+        border-color: #ddd6fe !important;
+        color: #1e1b4b !important;
+      }
+      table, th, td { color: #1e293b !important; border-color: #cbd5e1 !important; }
+      th { color: #475569 !important; }
+      .cta-box, .cta-open {
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .cta-box {
+        background: #ecfdf5 !important;
+        border: 1px solid #6ee7b7 !important;
+        color: #14532d !important;
+      }
+      .cta-open {
+        background: #f0fdf4 !important;
+        border: 1px solid #bbf7d0 !important;
+        color: #14532d !important;
+      }
+      .cta-box .big { color: #047857 !important; }
+      .inspo-card {
+        background: #fff !important;
+        border-color: #e2e8f0 !important;
+        break-inside: avoid;
+      }
+      .inspo-card img { background: #f1f5f9 !important; }
+      .hero-banner {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border-color: #cbd5e1 !important;
+        background: #fff !important;
+      }
+      .hero-banner img,
+      .section-visual img,
+      .why-triple img,
+      .inspo-card img,
+      .cursor-block img,
+      .idea-thumb img {
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        page-break-inside: avoid;
+      }
+      .section-visual.tight img { max-height: none !important; }
+      .stack-logos img {
+        max-height: 48px !important;
+        max-width: 200px !important;
+      }
+      .stack-logos .logo-wrap.app-store img {
+        max-width: 48px !important;
+        height: 48px !important;
+      }
+      footer, footer strong {
+        color: #334155 !important;
+      }
+      footer span[style*="seed"] { color: #047857 !important; }
+      .num {
+        color: #0f172a !important;
+        background: linear-gradient(135deg, #7dd3fc, #c4b5fd) !important;
+      }
     }
   </style>
 </head>
@@ -831,7 +976,7 @@
       <div class="cursor-block">
         <img src="blueprint-media/cursor-brand.png" alt="Cursor logo" width="220" height="92" />
         <div>
-          <p style="margin-top:0;"><strong>You don’t need to know how to code.</strong></p>
+          <p style="margin-top:0;"><strong>You don’t need to know how to code — at all.</strong></p>
           <p><span class="mono">Cursor</span> is <strong>two things at once</strong>: a <strong>guide</strong> for your app (what to build, in what order, what to watch for) and the <strong>builder</strong> that turns plain language into real code. You say what you want — “add a sign-in screen,” “fix this crash” — it writes and edits the files. You steer; it types. Ask it to explain like you’re new. Ask what to click.</p>
         </div>
       </div>
@@ -878,13 +1023,13 @@
     <section>
       <h2><span class="num">07</span> Order that usually works</h2>
       <ol class="steps">
-        <li>Write <strong>one paragraph</strong>: who, what, one main action.</li>
-        <li>Start the project with Cursor (it tells you what to install).</li>
-        <li>Make <strong>one thing</strong> work — e.g. open app → one screen.</li>
-        <li>Add the next <strong>small</strong> piece (sign-in, save one thing…).</li>
-        <li>Put it on <strong>your phone</strong>; <strong>use it yourself</strong> and note what breaks — no shame, just data.</li>
-        <li>Friends test; you watch what confuses them.</li>
-        <li>Ship when it’s <strong>stable enough</strong>; keep iterating.</li>
+        <li><strong>Know your why.</strong> Be clear on <strong>why</strong> you’re building — that’s what you come back to when it gets hard.</li>
+        <li><strong>Outline the idea</strong> (bullets, not an essay): the <strong>problem</strong> you’re solving, <strong>who</strong> it’s for, and the <strong>one main outcome</strong> they get.</li>
+        <li><strong>Start in Cursor</strong> — new project, environment setup; it walks you through what to install.</li>
+        <li><strong>Ship small slices of product</strong> — one flow or feature after another until it’s <strong>enough to be useful</strong>, not perfect.</li>
+        <li><strong>Use it yourself</strong>, then put it in front of <strong>friends</strong>; watch what breaks or confuses people — that’s data, not shame.</li>
+        <li><strong>Ship</strong> when it’s <strong>stable enough</strong> for real use.</li>
+        <li><strong>Keep iterating</strong> — observe, fix, improve; same loop forever.</li>
       </ol>
       <p class="aside" style="margin-top:0.85rem;">Magic question: <em>“What’s the smallest next step?”</em></p>
       <div class="section-visual section-photo">
@@ -923,7 +1068,6 @@
       <span style="color:var(--seed);">Start before you’re ready. That’s how the future gets written.</span>
       <div class="pdf-cta-wrap no-print">
         <button type="button" class="pdf-btn" onclick="window.print()">Save as PDF</button>
-        <p class="pdf-hint">Opens your browser’s print window — choose <strong>Save as PDF</strong> (or Print). Same idea as “print to PDF” in the intro.</p>
       </div>
     </footer>
   </div>
