@@ -114,7 +114,8 @@ export default function HomePage() {
           Sound familiar?
         </h2>
         <p className="band-lead">
-          Below: a <strong>real example</strong>, then the <strong>three pieces</strong> that run the loop.
+          You have a <strong>goal</strong> or <strong>problem</strong> you care about — this is what trying to move it often feels
+          like.
         </p>
         <div className="pain-grid">
           <article className="pain-card">
