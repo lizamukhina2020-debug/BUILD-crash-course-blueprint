@@ -26,12 +26,20 @@ export default function HomePage() {
                 <li>You want help that feels gentle — not like you’re being scolded.</li>
               </ul>
               <p className="sub">
-                <strong>SeedMind</strong> is a calm space on your phone: you <strong>talk with your Seeds Guide</strong>, get
-                plain words for what might be going on, pick <strong>one small seed</strong> (a real action), and use{' '}
-                <strong>short meditations</strong> to help it stick — the same flow as in the app.
+                <strong>SeedMind</strong> is built for a <strong>real loop</strong>: you bring a goal or a stuck problem,
+                the <strong>Seeds Guide</strong> maps <strong>cause → effect</strong> in plain language, you take{' '}
+                <strong>actions in the real world</strong>, <strong>record them in your garden</strong>,{' '}
+                <strong>water</strong> them with short <strong>meditations</strong> (feel the good you gave — that’s
+                what speeds things up), and when life moves, you <strong>harvest</strong> — you log the shift so you
+                remember the change was real. Same flow as the app.
               </p>
               <div className="cta-row">
-                <a className="btn btn-primary" href="#download">
+                <a
+                  className="btn btn-primary"
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Download on iPhone
                 </a>
                 <Link className="btn btn-ghost" href="/support">
@@ -99,15 +107,17 @@ export default function HomePage() {
       <section className="section-example" aria-labelledby="example-heading">
         <div className="example-grid">
           <div className="example-copy">
-            <p className="section-kicker">Example</p>
+            <p className="section-kicker">Inside a real turn</p>
             <h2 id="example-heading" className="section-title">
-              The kind of answer your Seeds Guide might give
+              How the Seeds Guide sounds in SeedMind
             </h2>
             <p className="example-intro">
-              This is <strong>made up</strong> — but it’s close to how the app talks: simple cause-and-effect, then seeds you
-              can pick from.
+              After you share what’s going on, the Guide explores with you — then names the <strong>mirror</strong>: how
+              something you did toward others may line up with what you feel now. Then you choose <strong>seeds</strong>{' '}
+              (real actions). Below is that <strong>mirror moment</strong>, shortened for the page — the same structure
+              the app uses.
             </p>
-            <div className="chat-demo" role="figure" aria-label="Example chat flow">
+            <div className="chat-demo" role="figure" aria-label="Example Seeds Guide mirror moment">
               <div className="chat-line chat-user">
                 <span className="chat-label">You</span>
                 <p>“I don’t want to feel so lonely. I want to feel like I belong.”</p>
@@ -115,26 +125,35 @@ export default function HomePage() {
               <div className="chat-line chat-guide">
                 <span className="chat-label">Seeds Guide</span>
                 <p>
-                  “This kind of feeling can be connected to moments when someone felt they didn’t belong — including
-                  times you might have left someone on the outside without meaning to. It can also be tied to when{' '}
-                  <em>you</em> felt unseen. Naming that doesn’t fix everything overnight, but it can make the loneliness
-                  feel a little less random. From here we can look at <strong>small seeds</strong> — real actions — you
-                  can choose from.”
+                  Do you see what might be connected? Think back — was there a time someone wanted to feel included, and
+                  maybe you didn’t make room: you didn’t answer, didn’t invite them in, or looked away when they tried to
+                  join? They may have felt <strong>left out</strong> — like they didn’t belong.
+                </p>
+                <p>
+                  What you’re craving now — <strong>belonging</strong> — can be that same kind of feeling coming back
+                  around. <strong>Life works like a mirror.</strong> The feeling you gave can be the feeling you receive.
+                </p>
+                <p>
+                  That’s not here to shame you; it’s the opposite — it means you can <strong>plant something new</strong>.
+                  Let’s pick a small action that gives someone else the warmth you want to feel.
                 </p>
               </div>
             </div>
             <div className="seed-card">
               <span className="seed-card-tag">Seeds you could plant</span>
               <p className="seed-card-pick">
-                In the app you’ll get <strong>several</strong> ideas like these. <strong>Pick one</strong> to start — any
+                In the app you’ll see <strong>several</strong> ideas like these. <strong>Pick one</strong> to start — any
                 one is enough. You can explore others when you’re ready.
               </p>
               <ul className="seed-options">
-                <li>Text someone you’ve been meaning to check in on.</li>
-                <li>Say hi to someone who often sits alone.</li>
-                <li>Do one small kind thing for a neighbor or coworker.</li>
+                <li>Reach out to someone you’ve lost touch with.</li>
+                <li>Include someone who looks alone.</li>
+                <li>Really listen to someone today — full presence, no phone.</li>
               </ul>
-              <span className="seed-card-meta">After you plant a seed, you can water it with a short meditation in the app.</span>
+              <span className="seed-card-meta">
+                Then you <strong>water</strong> what you planted with a short meditation in the app — picture their face,
+                feel the good you gave — that’s what helps the seed ripen faster.
+              </span>
             </div>
           </div>
           <div className="example-visual">
@@ -156,47 +175,104 @@ export default function HomePage() {
       </section>
 
       <section className="section-features">
-        <p className="section-kicker">How it fits together</p>
-        <h2 className="section-title">Three simple pieces</h2>
+        <p className="section-kicker">The pieces</p>
+        <h2 className="section-title">Three parts — one loop you can feel</h2>
         <div className="grid3">
           <article className="mini">
             <div className="mini-num">01</div>
             <h3 className="mini-title">Seeds Guide</h3>
             <p className="mini-body">
-              Say what’s on your mind. Get clear language back — and a few <strong>seed</strong> ideas, not a giant to-do
-              list.
+              Say what you want to change. Get empathy, exploration, then the <strong>mirror</strong> and concrete{' '}
+              <strong>seed</strong> options — not a giant lecture.
             </p>
           </article>
           <article className="mini">
             <div className="mini-num">02</div>
             <h3 className="mini-title">Your garden</h3>
             <p className="mini-body">
-              Plant the seed you chose. Come back when you can — small visits count more than perfect streaks.
+              <strong>Plant</strong> what you chose and <strong>record</strong> it — so your actions live somewhere you
+              can see, not only in your head.
             </p>
           </article>
           <article className="mini">
             <div className="mini-num">03</div>
             <h3 className="mini-title">Meditations</h3>
             <p className="mini-body">
-              Short sessions to <strong>water</strong> what you planted — so it sinks in, not just live in your head.
+              <strong>Water</strong> your seeds: short sessions where you feel the other person’s relief or joy — the app’s
+              way to help good results show up <strong>sooner</strong>.
             </p>
           </article>
         </div>
       </section>
 
+      <section className="section-cycle" aria-labelledby="cycle-heading">
+        <div className="cycle-grid">
+          <div className="cycle-copy">
+            <p className="section-kicker">Why it’s more than “feeling better for a minute”</p>
+            <h2 id="cycle-heading" className="section-title">
+              A playful path from goal → action → shift you can name
+            </h2>
+            <p className="cycle-lead">
+              You’re not only here for a pep talk. You’re trying a <strong>different way to move your life</strong> — with
+              a map, a garden, and a finish line you can celebrate.
+            </p>
+            <ul className="cycle-list">
+              <li>
+                <strong>Start with what you want.</strong> Money, love, belonging, calm — the Guide helps you see{' '}
+                <strong>cause and effect</strong> in everyday words: what you give others and what tends to come back.
+              </li>
+              <li>
+                <strong>Do it in the real world.</strong> Pick a seed, act on it, then <strong>log it in your garden</strong>{' '}
+                so progress is visible — not lost by next week.
+              </li>
+              <li>
+                <strong>Water with meditation.</strong> Picture what you did, feel how it landed for them — that repetition
+                is how SeedMind <strong>speeds up</strong> the same seed you already planted.
+              </li>
+              <li>
+                <strong>Watch reality catch up.</strong> When something actually moves — a door opens, a pattern breaks, a
+                relationship softens — that’s not “luck only.” That’s what you’re practicing for.
+              </li>
+              <li>
+                <strong>Harvest.</strong> Record the transformation in the app so you remember: <strong>this changed</strong>
+                . That’s the fun part — proof the loop is real.
+              </li>
+            </ul>
+          </div>
+          <div className="cycle-visual">
+            <p className="hero-visual-label">Harvest — when life moves, log the win</p>
+            <div className="phone-frame phone-frame--tilt-rev">
+              <div className="phone-frame-inner">
+                <Image
+                  src="/marketing/app-harvest.png"
+                  alt="SeedMind harvest screen on iPhone"
+                  width={780}
+                  height={1688}
+                  className="phone-shot"
+                  sizes="(max-width: 900px) 80vw, 340px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-outcomes" aria-labelledby="outcomes-heading">
         <h2 id="outcomes-heading" className="outcomes-title">
-          What many people are hoping for after sticking with it a little
+          What you’re really reaching for when you stick with it
         </h2>
         <ul className="outcomes-list">
           <li>
-            <strong>Words for what’s going on</strong> — so it’s not just noise in your head.
+            <strong>Problems that start to look fixable</strong> — not because someone yelled at you, but because you see
+            a line between what you do for others and what shows up for you.
           </li>
           <li>
-            <strong>One step you can repeat</strong> — small enough for a normal tired day.
+            <strong>Goals that meet the ground</strong> — tiny actions you repeat, track in the garden, and water — so
+            “change” isn’t only a mood, it’s something you did.
           </li>
           <li>
-            <strong>A place to return to</strong> — without shame when you drift off and come back.
+            <strong>A reality that can shift</strong> — then a <strong>harvest</strong> you record, so you don’t forget
+            the moment things moved. That’s the point: try a new angle, stay kind, and let the app hold the thread.
           </li>
         </ul>
       </section>
@@ -213,8 +289,8 @@ export default function HomePage() {
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
               App Store listing
             </a>
-            , install, and try <strong>one conversation</strong> with your Seeds Guide — see if you leave with one next
-            step that feels okay to try.
+            , install, and start <strong>one conversation</strong> — plant a seed, peek at your garden, try one water
+            session. See if you want to run the full loop.
           </p>
         </div>
       </section>
