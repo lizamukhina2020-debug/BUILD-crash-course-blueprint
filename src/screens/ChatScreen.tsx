@@ -83,6 +83,7 @@ import { bucketTextLength, trackEvent } from '../services/analytics';
 import { getFirebaseAuth } from '../services/firebase';
 import { maybeRequestNotificationsAfterAuth } from '../services/notificationService';
 import { subscribeCloudRestore } from '../services/cloudRestoreEvents';
+import { refreshChatFromCloudIfRemoteIsNewer } from '../services/cloudSync';
 import {
   canSendUserMessage,
   recordUserMessageSent,
@@ -696,6 +697,7 @@ export default function ChatScreen() {
   const [isCloudRestoring, setIsCloudRestoring] = useState(false);
   const cloudRestoreUidRef = useRef<string | null>(null);
   const restoreOverlayTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const loadConversationIntoStateRef = useRef<(c: ChatConversation) => Promise<void>>(async () => {});
 
   const refreshPremiumAndUsage = useCallback(async () => {
     try {
@@ -752,8 +754,15 @@ export default function ChatScreen() {
         // Force refresh so restored conversations appear immediately (no "type something" needed).
         Promise.resolve()
           .then(() => getAllConversations())
-          .then((allConvos) => {
+          .then(async (allConvos) => {
             setConversations(allConvos);
+            const id = currentChatIdRef.current;
+            if (id) {
+              const c = allConvos.find((x) => x.id === id);
+              if (c) {
+                await loadConversationIntoStateRef.current(c);
+              }
+            }
           })
           .catch(() => {});
       }
@@ -1391,6 +1400,8 @@ export default function ChatScreen() {
     });
   };
 
+  loadConversationIntoStateRef.current = loadConversationIntoState;
+
   // Auto-save conversation when messages or key states change
   useEffect(() => {
     if (messages.length > getInitialMessages().length && currentChatId) {
@@ -1484,6 +1495,16 @@ export default function ChatScreen() {
     useCallback(() => {
       // Main refresh function that runs sequentially to avoid race conditions
       const refreshOnFocus = async () => {
+        let remoteChatPulled = false;
+        try {
+          const authUser = getFirebaseAuth().currentUser;
+          if (authUser) {
+            remoteChatPulled = await refreshChatFromCloudIfRemoteIsNewer(authUser.uid);
+          }
+        } catch {
+          // ignore
+        }
+
         // First focus: always start a fresh Seeds Guide unless a Garden force-open is pending.
         // Later focuses: only apply a new force-open (e.g. Garden → Chat while Chat stays mounted).
         const isFirstGuideBootstrap = !guideSessionBootstrapDoneRef.current;
@@ -1562,7 +1583,14 @@ export default function ChatScreen() {
         // THIRD: Refresh conversations list
         const allConvos = await getAllConversations();
         setConversations(allConvos);
-        
+
+        if (remoteChatPulled && currentChatId) {
+          const refreshed = allConvos.find((c) => c.id === currentChatId);
+          if (refreshed) {
+            await loadConversationIntoState(refreshed);
+          }
+        }
+
         // Check if current conversation was deleted (e.g., after clearing history)
         if (currentChatId && !allConvos.find(c => c.id === currentChatId)) {
           setCurrentChatId(null);
@@ -1617,7 +1645,7 @@ export default function ChatScreen() {
         
         // FOURTH: Only load active conversation if we didn't just handle a meditation completion
         // (If we did, we already have the correct state set)
-        if (!handledMeditationCompletion) {
+        if (!handledMeditationCompletion && !remoteChatPulled) {
           // If we're on the "New chat" screen (no active chat), do NOT auto-open the most recent conversation
           // just because an activeChatId exists in storage.
           if (currentChatId) {

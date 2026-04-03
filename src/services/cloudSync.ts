@@ -49,6 +49,65 @@ let scheduledSyncInFlight: Promise<void> | null = null;
 let restoreDoneUidCache: string | null = null;
 let restoreDoneUidCacheLoadStarted = false;
 
+/** Throttle background “is cloud chat newer?” checks (AppState resume). */
+let lastChatRemoteCheckAt = 0;
+const CHAT_REMOTE_CHECK_INTERVAL_MS = 12_000;
+
+function parseIsoToMs(iso: unknown): number {
+  if (typeof iso !== 'string') return 0;
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? t : 0;
+}
+
+async function getCloudChatSnapshotUpdatedAtMs(uid: string): Promise<number> {
+  const snap = await getDoc(doc(getFirestoreDb(), 'users', uid, 'sync', 'chatSnapshot'));
+  if (!snap.exists()) return 0;
+  const d = snap.data() as { updatedAt?: string };
+  return parseIsoToMs(d?.updatedAt);
+}
+
+function getLocalConversationsMaxUpdatedAtMs(conversationsJson: string | null): number {
+  if (!conversationsJson) return 0;
+  const arr = safeJsonParse(conversationsJson);
+  if (!Array.isArray(arr)) return 0;
+  let max = 0;
+  for (const c of arr) {
+    max = Math.max(max, parseIsoToMs((c as { updatedAt?: string })?.updatedAt));
+  }
+  return max;
+}
+
+/**
+ * If another device uploaded a newer chat snapshot, pull chat + active id into local storage.
+ * Does not touch garden/meditation (avoids clobbering unsynced local changes there).
+ */
+export async function refreshChatFromCloudIfRemoteIsNewer(
+  uid: string,
+  opts?: { force?: boolean }
+): Promise<boolean> {
+  if (!isFirebaseConfigured()) return false;
+  const now = Date.now();
+  if (!opts?.force && now - lastChatRemoteCheckAt < CHAT_REMOTE_CHECK_INTERVAL_MS) {
+    return false;
+  }
+  lastChatRemoteCheckAt = now;
+
+  try {
+    const cloudMs = await getCloudChatSnapshotUpdatedAtMs(uid);
+    const localRaw = await AsyncStorage.getItem(CHAT_KEYS.CONVERSATIONS);
+    const localMs = getLocalConversationsMaxUpdatedAtMs(localRaw);
+    // Slack for clock skew between devices when writing updatedAt.
+    if (cloudMs <= localMs + 2000) return false;
+
+    await restoreJsonSingleton(uid, 'sync', 'chatSnapshot', CHAT_KEYS.CONVERSATIONS);
+    await restoreJsonSingleton(uid, 'sync', 'activeChatId', CHAT_KEYS.ACTIVE_CHAT_ID);
+    return true;
+  } catch (e) {
+    console.warn('[cloudSync] refreshChatFromCloudIfRemoteIsNewer failed', e);
+    return false;
+  }
+}
+
 export async function shouldRunCloudRestore(uid: string): Promise<boolean> {
   // Only do an expensive Cloud->Local restore when it’s actually needed.
   // Otherwise, users see a “Restoring…” flash on every app open/tab mount.

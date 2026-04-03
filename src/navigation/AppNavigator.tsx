@@ -10,6 +10,8 @@ import {
   InteractionManager,
   LayoutAnimation,
   UIManager,
+  AppState,
+  type AppStateStatus,
 } from 'react-native';
 import { CommonActions, NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -48,6 +50,7 @@ import type { User } from 'firebase/auth';
 import {
   ensureUserDoc,
   migrateLocalToCloudIfNeeded,
+  refreshChatFromCloudIfRemoteIsNewer,
   restoreCloudToLocal,
   shouldRunCloudRestore,
   syncLocalSnapshotsToCloud,
@@ -443,6 +446,8 @@ export default function AppNavigator({ onAppReady }: Props) {
             if (getFirebaseAuth().currentUser?.uid !== signedInUid) return;
 
             if (!shouldRestore) {
+              // Pull newer chat from another device if cloud snapshot is ahead of local (same-account sync).
+              await refreshChatFromCloudIfRemoteIsNewer(signedInUid, { force: true });
               // Avoid flashing "Restoring…" on every app open if local data is already present.
               setCloudRestoreState({ uid: signedInUid, phase: 'done', error: undefined });
               return;
@@ -474,7 +479,24 @@ export default function AppNavigator({ onAppReady }: Props) {
     });
     return unsub;
   }, []);
-  
+
+  useEffect(() => {
+    const onAppState = (next: AppStateStatus) => {
+      if (next !== 'active') return;
+      const u = getFirebaseAuth().currentUser;
+      if (!u) return;
+      refreshChatFromCloudIfRemoteIsNewer(u.uid)
+        .then((did) => {
+          if (did) {
+            setCloudRestoreState({ uid: u.uid, phase: 'done', error: undefined });
+          }
+        })
+        .catch(() => {});
+    };
+    const sub = AppState.addEventListener('change', onAppState);
+    return () => sub.remove();
+  }, []);
+
   useEffect(() => {
     if (isLoading) return;
     fadeIn.setValue(0);
