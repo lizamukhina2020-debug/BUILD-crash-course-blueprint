@@ -4,7 +4,9 @@ export default {
     slug: "SeedMind",
     version: "1.0.0",
     updates: {
-      url: "https://u.expo.dev/d31dd93f-ef85-4dbf-a5d1-a10dffe71e94"
+      url: "https://u.expo.dev/d31dd93f-ef85-4dbf-a5d1-a10dffe71e94",
+      checkAutomatically: "ON_LOAD",
+      fallbackToCacheTimeout: 0
     },
     runtimeVersion: {
       policy: "appVersion"
@@ -69,7 +71,7 @@ export default {
       // You can still override it via EAS secret/env `DEEPSEEK_PROXY_URL`.
       deepseekProxyUrl:
         process.env.DEEPSEEK_PROXY_URL ||
-        "https://seedmind-api-459383561842.europe-west1.run.app/v1/chat/completions",
+        "https://seedmind-api2-459383561842.europe-west1.run.app/v1/chat/completions",
       revenueCat: {
         appleApiKey: process.env.REVENUECAT_APPLE_API_KEY || "appl_DTLKesFWjkXZawJvpYysQsWmDBg",
         // Entitlement identifier in RevenueCat (Dashboard → Product catalog → Entitlements).

@@ -737,6 +737,8 @@
       "tryAgain": "Please try again.",
       "notAvailableTitle": "Not available",
       "notAvailableBody": "Please try again in a moment.",
+      "authRequiredBody": "Please sign in to your SeedMind account before purchasing Premium.",
+      "linkFailedBody": "Could not connect your account to the store. Please try again in a moment.",
       "welcomeTitle": "Welcome to Premium",
       "welcomeBody": "Everything is now unlocked.",
       "purchaseCompletedTitle": "Purchase completed",

@@ -21,6 +21,7 @@ import {
 import { repairAnxietyJourneysToPeace, repairSafetyJourneysThatAreActuallyHealth } from './src/services/categoryRepair';
 import WebAlertHost from './src/components/WebAlertHost';
 import { initRevenueCat } from './src/services/revenueCat';
+import { applyOtaIfAvailable } from './src/bootstrap/applyOtaIfAvailable';
 
 // Keep the native splash visible until the app is ready.
 // This eliminates the "white flash" during startup.
@@ -50,6 +51,11 @@ export default function App() {
   const [splashHidden, setSplashHidden] = useState(false);
   const [rootHasLaidOut, setRootHasLaidOut] = useState(false);
   const [navReady, setNavReady] = useState(false);
+
+  // EAS Update: explicit check on launch so store/TestFlight builds pick up OTAs reliably.
+  useEffect(() => {
+    applyOtaIfAvailable();
+  }, []);
 
   // Ensure meditation audio keeps playing with screen off (TestFlight / App Store builds).
   useEffect(() => {

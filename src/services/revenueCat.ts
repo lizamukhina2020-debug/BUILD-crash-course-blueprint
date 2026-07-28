@@ -296,6 +296,76 @@ export async function isRevenueCatPremiumForUid(uid: string | null): Promise<boo
   return owner === uid;
 }
 
+async function isRevenueCatAppUserId(uid: string): Promise<boolean> {
+  try {
+    return (await Purchases.getAppUserID()) === uid;
+  } catch {
+    return currentAppUserId === uid;
+  }
+}
+
+/**
+ * Ensure RevenueCat is identified as the Firebase uid before purchase/restore.
+ * Prevents purchases from landing on a stale anonymous RC profile after sign-up.
+ */
+export async function ensureRevenueCatUserLinked(uid: string): Promise<boolean> {
+  const trimmed = String(uid || '').trim();
+  if (!trimmed) return false;
+
+  await initRevenueCat();
+  const apiKey = getApiKeyForPlatform();
+  if (!apiKey) return false;
+
+  await setRevenueCatUser(trimmed);
+  if (await isRevenueCatAppUserId(trimmed)) return true;
+
+  // One explicit retry — the auth-state listener can race with the paywall.
+  try {
+    const result = await Purchases.logIn(trimmed);
+    applyCustomerInfoFromSdk(result.customerInfo);
+    currentAppUserId = trimmed;
+  } catch (e) {
+    console.warn('[revenuecat] ensure linked failed', e);
+    return false;
+  }
+
+  return isRevenueCatAppUserId(trimmed);
+}
+
+export type PremiumUnlockResult = {
+  premium: boolean;
+  deviceHasPremium: boolean;
+};
+
+/**
+ * After purchase/restore: link RC to Firebase uid, sync with the store, refresh caches, re-check premium.
+ */
+export async function tryUnlockPremiumForUid(uid: string): Promise<PremiumUnlockResult> {
+  const trimmed = String(uid || '').trim();
+  if (!trimmed) return { premium: false, deviceHasPremium: false };
+
+  await ensureRevenueCatUserLinked(trimmed);
+
+  try {
+    const sync = await Purchases.syncPurchasesForResult();
+    applyCustomerInfoFromSdk(sync.customerInfo);
+  } catch {
+    // ignore — sync may be unavailable or unnecessary on some builds
+  }
+
+  await refreshRevenueCatCaches();
+  let premium = await isRevenueCatPremiumForUid(trimmed);
+
+  if (!premium) {
+    await new Promise<void>((r) => setTimeout(r, 1500));
+    await refreshRevenueCatCaches();
+    premium = await isRevenueCatPremiumForUid(trimmed);
+  }
+
+  const deviceHasPremium = await isRevenueCatPremium();
+  return { premium, deviceHasPremium };
+}
+
 export async function getCurrentOffering(): Promise<PurchasesOffering | null> {
   await initRevenueCat();
   const apiKey = getApiKeyForPlatform();

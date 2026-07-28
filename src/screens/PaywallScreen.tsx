@@ -9,10 +9,12 @@ import { CommonActions, useFocusEffect } from '@react-navigation/native';
 import { Colors, Typography, Spacing, BorderRadius, Shadows } from '../constants/theme';
 import {
   applyCustomerInfoFromSdk,
+  ensureRevenueCatUserLinked,
   getCurrentOffering,
   getRevenueCatEntitlementId,
   isRevenueCatPremium,
   refreshRevenueCatCaches,
+  tryUnlockPremiumForUid,
 } from '../services/revenueCat';
 import { showAlert } from '../utils/crossPlatformAlert';
 import { markPlanChoiceSeen } from '../services/planChoice';
@@ -110,6 +112,16 @@ function formatPlanHint(pkg: PurchasesPackage, t: (k: string, opts?: any) => str
   if (id.includes('year') || id.includes('annual')) return t('paywall.plans.yearlyHint');
   if (id.includes('month')) return t('paywall.plans.monthlyHint');
   return pkg.product?.description || '';
+}
+
+async function waitForFirebaseUid(maxWaitMs: number = 3000): Promise<string | null> {
+  const deadline = Date.now() + maxWaitMs;
+  while (Date.now() < deadline) {
+    const uid = getFirebaseAuth().currentUser?.uid;
+    if (uid) return uid;
+    await new Promise<void>((r) => setTimeout(r, 120));
+  }
+  return getFirebaseAuth().currentUser?.uid ?? null;
 }
 
 export default function PaywallScreen({ navigation, route }: Props) {
@@ -368,26 +380,41 @@ export default function PaywallScreen({ navigation, route }: Props) {
     if (busy) return;
     setBusy(true);
     try {
-      await refreshPremiumState();
-      // Brief wait: Firebase currentUser can lag right after sign-in before restore.
-      const authWaitUntil = Date.now() + 1800;
-      while (Date.now() < authWaitUntil && !getFirebaseAuth().currentUser?.uid) {
-        await new Promise<void>((r) => setTimeout(r, 120));
+      const uid = await waitForFirebaseUid();
+      if (uid) {
+        const linked = await ensureRevenueCatUserLinked(uid);
+        if (!linked) {
+          showAlert(
+            t('paywall.alerts.notAvailableTitle'),
+            t('paywall.alerts.linkFailedBody', {
+              defaultValue: 'Could not connect your account to the store. Please try again in a moment.',
+            })
+          );
+          return;
+        }
       }
+
+      await refreshPremiumState();
       const restoredInfo = await Purchases.restorePurchases();
       applyCustomerInfoFromSdk(restoredInfo);
       let latestInfo: any = restoredInfo;
-      let premium = await getEffectivePremiumFlag();
-      if (!premium) {
+
+      let premium = false;
+      let deviceHasPremium = false;
+      if (uid) {
+        const unlock = await tryUnlockPremiumForUid(uid);
+        premium = unlock.premium;
+        deviceHasPremium = unlock.deviceHasPremium;
         try {
-          const sync = await Purchases.syncPurchasesForResult();
-          applyCustomerInfoFromSdk(sync.customerInfo);
-          latestInfo = sync.customerInfo;
-          premium = await getEffectivePremiumFlag();
+          latestInfo = await Purchases.getCustomerInfo();
         } catch {
-          // ignore
+          // keep restoredInfo
         }
+      } else {
+        premium = await getEffectivePremiumFlag();
+        deviceHasPremium = await isRevenueCatPremium();
       }
+
       setPremiumActive(premium);
       try {
         hydrateFromCustomerInfo(latestInfo);
@@ -401,8 +428,7 @@ export default function PaywallScreen({ navigation, route }: Props) {
         } else {
           safeClose();
         }
-      } else {
-        // Option C (ChatGPT-style): purchases do not transfer between SeedMind accounts.
+      } else if (deviceHasPremium) {
         showAlert(
           t('paywall.alerts.linkedDifferentAccountTitle', { defaultValue: 'Subscription is linked to another account' }),
           t('paywall.alerts.linkedDifferentAccountBody', {
@@ -410,6 +436,8 @@ export default function PaywallScreen({ navigation, route }: Props) {
               'No purchases were restored for this SeedMind account. If you already subscribed, please sign into the account you purchased with.',
           })
         );
+      } else {
+        showAlert(t('paywall.alerts.noPurchasesTitle'), t('paywall.alerts.noPurchasesBody'));
       }
     } catch (e: any) {
       showAlert(t('paywall.alerts.restoreFailedTitle'), e?.message || t('paywall.alerts.tryAgain'));
@@ -429,11 +457,32 @@ export default function PaywallScreen({ navigation, route }: Props) {
       const confirmed = await confirmPurchaseForCurrentAccount();
       if (!confirmed) return;
 
+      const uid = await waitForFirebaseUid();
+      if (!uid) {
+        showAlert(
+          t('paywall.alerts.notAvailableTitle'),
+          t('paywall.alerts.authRequiredBody', {
+            defaultValue: 'Please sign in to your SeedMind account before purchasing Premium.',
+          })
+        );
+        return;
+      }
+
+      const linked = await ensureRevenueCatUserLinked(uid);
+      if (!linked) {
+        showAlert(
+          t('paywall.alerts.notAvailableTitle'),
+          t('paywall.alerts.linkFailedBody', {
+            defaultValue: 'Could not connect your account to the store. Please try again in a moment.',
+          })
+        );
+        return;
+      }
+
       // Avoid confusing "instant premium" flows: if the user is already subscribed on this Apple ID,
       // don't try to repurchase. Show a clear message and offer Manage instead.
       await refreshPremiumState();
-      const entitledOnThisDevice = await isRevenueCatPremium();
-      const premiumForThisAccount = await getEffectivePremiumFlag();
+      let premiumForThisAccount = await getEffectivePremiumFlag();
       if (premiumForThisAccount) {
         setPremiumActive(true);
         showAlert(
@@ -449,32 +498,49 @@ export default function PaywallScreen({ navigation, route }: Props) {
         }
         return;
       }
-      // Strict Option C: if a subscription exists on this Apple ID but is owned by another SeedMind account,
-      // do not even show the App Store sheet. Explain clearly.
+
+      // Device may show an entitlement before RC is linked to this Firebase uid — try merge first.
+      const entitledOnThisDevice = await isRevenueCatPremium();
       if (entitledOnThisDevice && !premiumForThisAccount) {
-        showAlert(
-          t('paywall.alerts.linkedDifferentAccountTitle', { defaultValue: 'Subscription is linked to another account' }),
-          t('paywall.alerts.linkedDifferentAccountBody', {
-            defaultValue:
-              'This Apple ID already has a SeedMind subscription, but it’s linked to a different SeedMind account. Please sign into the account you purchased with.',
-          })
-        );
-        return;
+        const unlock = await tryUnlockPremiumForUid(uid);
+        premiumForThisAccount = unlock.premium;
+        if (unlock.premium) {
+          setPremiumActive(true);
+          showAlert(t('paywall.alerts.welcomeTitle'), t('paywall.alerts.welcomeBody'));
+          if (isFirstLaunch) {
+            await goToMain();
+          } else {
+            safeClose();
+          }
+          return;
+        }
+        if (unlock.deviceHasPremium) {
+          showAlert(
+            t('paywall.alerts.linkedDifferentAccountTitle', { defaultValue: 'Subscription is linked to another account' }),
+            t('paywall.alerts.linkedDifferentAccountBody', {
+              defaultValue:
+                'This Apple ID already has a SeedMind subscription, but it’s linked to a different SeedMind account. Please sign into the account you purchased with.',
+            })
+          );
+          return;
+        }
       }
+
+      await ensureRevenueCatUserLinked(uid);
 
       const purchaseResult: any = await Purchases.purchasePackage(selectedPackage);
       applyCustomerInfoFromSdk(purchaseResult?.customerInfo ?? null);
-      await refreshPremiumState();
-      const premiumAfter = await getEffectivePremiumFlag();
-      setPremiumActive(premiumAfter);
-      if (premiumAfter) {
+
+      const unlock = await tryUnlockPremiumForUid(uid);
+      setPremiumActive(unlock.premium);
+      if (unlock.premium) {
         showAlert(t('paywall.alerts.welcomeTitle'), t('paywall.alerts.welcomeBody'));
         if (isFirstLaunch) {
           await goToMain();
         } else {
           safeClose();
         }
-      } else {
+      } else if (unlock.deviceHasPremium) {
         showAlert(
           t('paywall.alerts.linkedDifferentAccountTitle', { defaultValue: 'Subscription is linked to another account' }),
           t('paywall.alerts.linkedDifferentAccountBody', {
@@ -482,6 +548,8 @@ export default function PaywallScreen({ navigation, route }: Props) {
               'This Apple ID already has a SeedMind subscription, but it’s linked to a different SeedMind account. Please sign into the account you purchased with.',
           })
         );
+      } else {
+        showAlert(t('paywall.alerts.purchaseCompletedTitle'), t('paywall.alerts.purchaseCompletedBody'));
       }
     } catch (e: any) {
       if (e?.userCancelled) {
@@ -493,12 +561,27 @@ export default function PaywallScreen({ navigation, route }: Props) {
       const message = String(e?.message || '');
       const likelyOptionCLinkedAccount =
         code === PURCHASES_ERROR_CODE.RECEIPT_ALREADY_IN_USE_ERROR ||
-        code === PURCHASES_ERROR_CODE.PRODUCT_ALREADY_PURCHASED_ERROR ||
-        code === PURCHASES_ERROR_CODE.STORE_PROBLEM_ERROR ||
-        /problem with the app store/i.test(message) ||
-        /receipt/i.test(message);
+        code === PURCHASES_ERROR_CODE.PRODUCT_ALREADY_PURCHASED_ERROR;
 
       if (likelyOptionCLinkedAccount) {
+        const uid = getFirebaseAuth().currentUser?.uid;
+        if (uid) {
+          const unlock = await tryUnlockPremiumForUid(uid);
+          if (unlock.premium) {
+            setPremiumActive(true);
+            showAlert(t('paywall.alerts.welcomeTitle'), t('paywall.alerts.welcomeBody'));
+            if (isFirstLaunch) {
+              await goToMain();
+            } else {
+              safeClose();
+            }
+            return;
+          }
+          if (!unlock.deviceHasPremium) {
+            showAlert(t('paywall.alerts.purchaseCompletedTitle'), t('paywall.alerts.purchaseCompletedBody'));
+            return;
+          }
+        }
         showAlert(
           t('paywall.alerts.linkedDifferentAccountTitle', { defaultValue: 'Subscription is linked to another account' }),
           t('paywall.alerts.linkedDifferentAccountBody', {
